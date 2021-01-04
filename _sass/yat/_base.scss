@@ -157,6 +157,8 @@ blockquote {
 pre,
 code {
   @include relative-font-size(0.9375);
+  font-family: "D2 coding", "Consolas", monospace;
+  background: #222222;
   color: $text-color;
 }
 
