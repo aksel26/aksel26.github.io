@@ -148,3 +148,4 @@ plugins:
   - jekyll-paginate
   - jekyll-spaceship
   - jekyll-babel
+  - jemoji
