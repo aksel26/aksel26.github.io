@@ -1,231 +1,140 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+layout: post
+title: "Network_7"
+categories: Computer_Science
+tags: Network TCP Congestion_Control
 ---
 
-This is my first post on my new fake blog! How exciting!
+# 7번째-수업
 
-I'm sure I'll write a lot more interesting things in the future.
+## Congestion Control
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
+- 수도관을 예로 들어보자
+  - 수도관의 너비를 알 수 없는 상황에서 수도관에 물을 과하게 부어버리면 터진다.
+  - 그러면 이 수도관의 너비를 알아야 하는데 알 수가 없다.
+  - 이러한 상황에서 물을 한바가지씩 붓는다.
+  - 문제가 없다면 또 한바가지..
+  - 문제가 생간다면 그때만큼 부었던 바가지의 양에서 조절 가능하다.
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+<br/> 
 
-![Chinese Salty Egg](./salty_egg.jpg)
+### 3 main phases
 
-You can also write code blocks here!
+1. **Slow start**
+2. **Addictive increases** 
+3. **Multiplicative increase**
 
-```js
-const saltyDuckEgg = "chinese preserved food product"
-```
 
-| Number | Title                                    | Year |
-| :----- | :--------------------------------------- | ---: |
-| 1      | Harry Potter and the Philosopher’s Stone | 2001 |
-| 2      | Harry Potter and the Chamber of Secrets  | 2002 |
-| 3      | Harry Potter and the Prisoner of Azkaban | 2004 |
 
-[View raw (TEST.md)](https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md)
+혼잡을 일으킬 가능성은 가장 적다.
 
-This is a paragraph.
+하지만 너무 천천히하면 이것도 문제다.
 
-    This is a paragraph.
+따라서 1,2,3,4, ... 에서 제곱한 수를 보낸다 . 1,2,4,8, ...
 
-# Header 1
+이때, 조심해야 할 지점을 **threshold**라고 부른다
 
-## Header 2
+<br/>
 
-    Header 1
-    ========
+<img src="/assets/images/image-20210111203358762.png" alt="image-20210111203358762" style="zoom:50%;" />
 
-    Header 2
-    --------
+*왜 절반이나 떨어뜨릴까 ? N/W는 공유자원이므로 확 줄여야 혼란이 풀리기 때문.*
 
-# Header 1
 
-## Header 2
 
-### Header 3
+<br/> 
 
-#### Header 4
+### MSS (Maximum segment Size)
 
-##### Header 5
+: Segment는 최대 500byte를 가질 수 있다.
 
-###### Header 6
+하나, 두개, 세개, ... 각각 하나의 MSS단위임.
 
-    # Header 1
-    ## Header 2
-    ### Header 3
-    #### Header 4
-    ##### Header 5
-    ###### Header 6
 
-# Header 1
 
-## Header 2
+TCP가 생성되면 두개의 버퍼 (send, receiver)가 생성되고, window size는 한번에 보낼 수 있는 양이다.
 
-### Header 3
+가장 처음에는 1MSS로 설정이 되어 있다. 
 
-#### Header 4
+이러한 과정을 통해 window size가 수시로 조절된다.
 
-##### Header 5
 
-###### Header 6
 
-    # Header 1 #
-    ## Header 2 ##
-    ### Header 3 ###
-    #### Header 4 ####
-    ##### Header 5 #####
-    ###### Header 6 ######
+<img src="/assets/images/image-20210111203705774.png" alt="image-20210111203705774" width ="60%"/>
 
-> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+congWin 사이가 클수록 속도가 빠르다.
 
-    > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+`rate = CongWin / RTT `  *RTT : Round Trip Time
 
-> ## This is a header.
->
-> 1. This is the first list item.
-> 2. This is the second list item.
->
-> Here's some example code:
->
->     Markdown.generate();
+<img src="/assets/images/image-20210111203905693.png" alt="image-20210111203905693" width ="60%"/>
 
-    > ## This is a header.
-    > 1. This is the first list item.
-    > 2. This is the second list item.
-    >
-    > Here's some example code:
-    >
-    >     Markdown.generate();
+그림처럼 쭉 이어나가면 안되는건가 ? 
 
-- Red
-- Green
-- Blue
+- 항상 N/W상황이 변하기 때문에 알 수가 없다. 즉, 계속해서 알아가는 과정이다.
 
-* Red
-* Green
-* Blue
 
-- Red
-- Green
-- Blue
 
-```markdown
-- Red
-- Green
-- Blue
+`rate = CongWin / RTT `
 
-* Red
-* Green
-* Blue
+둘 중 변동성이 더 큰 것은 `congWin` 이다. 즉, congWin(N/W환경)에 의해 속도가 좌우된다. 
 
-- Red
-- Green
-- Blue
-```
 
-- `code goes` here in this line
-- **bold** goes here
 
-```markdown
-- `code goes` here in this line
-- **bold** goes here
-```
+<br/> 
 
-1. Buy flour and salt
-1. Mix together with water
-1. Bake
+### TCP Tahoe VS TCP Reno
 
-```markdown
-1. Buy flour and salt
-1. Mix together with water
-1. Bake
-```
 
-1. `code goes` here in this line
-1. **bold** goes here
 
-```markdown
-1. `code goes` here in this line
-1. **bold** goes here
-```
+<img src="/assets/images/image-20210111204648090.png" alt="image-20210111204648090" width ="90%"/>
 
-Paragraph:
+#### TCP Tahoe
 
-    Code
+- TCP에서 패킷 유실을 감지하는 조건을 생각해보면,
+- TCP에서 패킷 유실을 감지하는 조건은 2가지가 있다.
+  1. timeout이 발생한 경우
+  2. 3 duplicate ACK
+- 두가지의 상황에서 N/W상황이 항상 같을까 ? ㄴㄴ
+  1. 3 duplicate ACK 은 N/W상황은 원할하지만 특정 패킷만 받지 못한 경우임
+  2. timeout은 N/W상황자체가 불안해 총체적 난국.
+- 따라서 둘의 상황을 각각 나눠서 생각해야 한다.
+- 이를 고려한 TCP가 **TCP Reno**
 
-<!-- -->
+<br/> 
 
-    Paragraph:
+#### TCP Reno
 
-        Code
+<img src="/assets/images/image-20210111205048574.png" alt="image-20210111205048574" width ="90%" />
 
----
+- 3 duplicate ACK 상황이면 **TCP Reno**
+- timeout이라면 **TCP Taho**를 사용하게 된다.
 
----
 
----
 
----
+<br/> 
 
----
+### TCP fairness
 
-    * * *
+실제로 수많은 TCP 연결을 사용할 것임.
 
-    ***
+그럼 그 각각의 독립적인 TCP사용에 자원을 공평하게 사용할 수 있는가 ???? ㅇㅇ
 
-    *****
+<img src="/assets/images/image-20210111205418957.png" alt="image-20210111205418957" width ="60%"/>
 
-    - - -
 
-    ---------------------------------------
 
-This is [an example](http://example.com "Example") link.
+- 결국 교차점으로 수렴하게 된다. (우연의 일치?일수도?ㅎㅎ)
 
-[This link](http://example.com) has no title attr.
 
-This is [an example][id] reference-style link.
 
-[id]: http://example.com "Optional Title"
 
-    This is [an example](http://example.com "Example") link.
 
-    [This link](http://example.com) has no title attr.
 
-    This is [an example] [id] reference-style link.
 
-    [id]: http://example.com "Optional Title"
+ 
 
-_single asterisks_
 
-_single underscores_
 
-**double asterisks**
 
-**double underscores**
 
-    *single asterisks*
 
-    _single underscores_
-
-    **double asterisks**
-
-    __double underscores__
-
-This paragraph has some `code` in it.
-
-    This paragraph has some `code` in it.
-
-![Alt Text](https://via.placeholder.com/200x50 "Image Title")
-
-    ![Alt Text](https://via.placeholder.com/200x50 "Image Title")
