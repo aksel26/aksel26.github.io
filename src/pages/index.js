@@ -6,6 +6,10 @@ import { Link, graphql } from "gatsby"
 import Seo from "../components/seo"
 import Layout from "../layout"
 import Header from "../components/Header"
+import FeatureCardWrapper from "../components/FeatureCardWrapper"
+import FeaturedCard from "../components/FeaturedCard"
+import Banner from "../components/Banner"
+// import FeaturedCard from "@/components/FeaturedCard"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -26,6 +30,11 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout>
+      <Banner />
+      <FeatureCardWrapper>
+        <FeaturedCard />
+        <FeaturedCard />
+      </FeatureCardWrapper>
       {/* <Layout location={location} title={siteTitle}> */}
       {/* <Bio /> */}
       {/* <ol style={{ listStyle: `none` }}>
