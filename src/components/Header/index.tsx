@@ -1,8 +1,7 @@
+import { GitHubLogoIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons"
 import React from "react"
-import * as S from "./styled"
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
-import { Button } from "../ui/button"
 import CommandMenu from "./CommandMenu"
+import * as S from "./styled"
 
 const Header = () => {
   return (
@@ -12,7 +11,9 @@ const Header = () => {
         <div style={{ display: "flex", columnGap: 15, alignItems: "center" }}>
           <div>Posts</div>
           <div>About</div>
-          <div>icons</div>
+          <div>
+            <GitHubLogoIcon />
+          </div>
           <CommandMenu />
           <div className="flex items-center gap-x-1">
             <MagnifyingGlassIcon />
