@@ -7,8 +7,11 @@ import Seo from "../components/seo"
 import Layout from "../layout"
 import Header from "../components/Header"
 import FeatureCardWrapper from "../components/FeatureCardWrapper"
-import FeaturedCard from "../components/FeaturedCard"
+import DevContents from "../components/FeaturedCard/dev"
+import LifeLogContents from "../components/FeaturedCard/daily"
+import FeaturedCardDaily from "../components/FeaturedCard/daily"
 import Banner from "../components/Banner"
+import Footer from "../components/Footer"
 // import FeaturedCard from "@/components/FeaturedCard"
 
 const BlogIndex = ({ data, location }) => {
@@ -32,9 +35,13 @@ const BlogIndex = ({ data, location }) => {
     <Layout>
       <Banner />
       <FeatureCardWrapper>
-        <FeaturedCard />
-        <FeaturedCard />
+        <DevContents />
+        <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded-sm md:my-10 dark:bg-gray-700" />
+
+        <LifeLogContents />
       </FeatureCardWrapper>
+      <Footer />
+
       {/* <Layout location={location} title={siteTitle}> */}
       {/* <Bio /> */}
       {/* <ol style={{ listStyle: `none` }}>
