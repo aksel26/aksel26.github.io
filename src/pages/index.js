@@ -14,7 +14,7 @@ import Banner from "../components/Banner"
 import Footer from "../components/Footer"
 // import FeaturedCard from "@/components/FeaturedCard"
 
-const BlogIndex = ({ data, location }) => {
+const Main = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
@@ -80,7 +80,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Main
 
 /**
  * Head export to define metadata for the page

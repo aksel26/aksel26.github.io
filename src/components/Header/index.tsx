@@ -2,6 +2,7 @@ import { GitHubLogoIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons"
 import React from "react"
 import CommandMenu from "./CommandMenu"
 import * as S from "./styled"
+import { Link } from "gatsby"
 
 const Header = () => {
   return (
@@ -9,8 +10,8 @@ const Header = () => {
       <S.Header>
         <div>LOGO</div>
         <div style={{ display: "flex", columnGap: 15, alignItems: "center" }}>
-          <div>Posts</div>
-          <div>About</div>
+          <Link to="/posts">Posts</Link>
+          <Link to="/about">About</Link>
           <div>
             <GitHubLogoIcon />
           </div>
