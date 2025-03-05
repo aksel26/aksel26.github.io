@@ -47,7 +47,6 @@
     "prettier": "^2.8.8",
     "tailwindcss": "^3.4.17"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
     "gatsby"
   ],
