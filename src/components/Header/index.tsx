@@ -8,7 +8,9 @@ const Header = () => {
   return (
     <S.Wrapper>
       <S.Header>
-        <div>LOGO</div>
+        <div>
+          <Link to="/">LOGO</Link>
+        </div>
         <div style={{ display: "flex", columnGap: 15, alignItems: "center" }}>
           <Link to="/posts">Posts</Link>
           <Link to="/about">About</Link>
