@@ -1,8 +1,8 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Layout from "../layout"
+// import Bio from "../components/bio"
+// import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const BlogPostTemplate = ({
@@ -11,9 +11,10 @@ const BlogPostTemplate = ({
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
 
+  console.log("🚀 ~ siteTitle:", siteTitle)
   return (
     <Layout location={location} title={siteTitle}>
-      <article
+      {/* <article
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
@@ -56,19 +57,20 @@ const BlogPostTemplate = ({
             )}
           </li>
         </ul>
-      </nav>
+      </nav> */}
+      hi
     </Layout>
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }) => {
-  return (
-    <Seo
-      title={post.frontmatter.title}
-      description={post.frontmatter.description || post.excerpt}
-    />
-  )
-}
+// export const Head = ({ data: { markdownRemark: post } }) => {
+//   return (
+//     <Seo
+//       title={post.frontmatter.title}
+//       description={post.frontmatter.description || post.excerpt}
+//     />
+//   )
+// }
 
 export default BlogPostTemplate
 
