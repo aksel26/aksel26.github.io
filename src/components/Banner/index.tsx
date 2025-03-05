@@ -2,8 +2,8 @@ import React from "react"
 
 const Banner = () => {
   return (
-    <div>
-      <img src="https://picsum.photos/600/200" alt="temp" />
+    <div className="w-full">
+      <img src="https://picsum.photos/600/200" alt="temp" className="w-full" />
       Banner
     </div>
   )
