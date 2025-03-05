@@ -37,7 +37,6 @@ export const ContentWrapper = styled.div`
 export const Content = styled.main`
   display: flex;
   flex-direction: column;
-  align-items: center;
   position: relative;
   width: 100%;
   max-width: ${contentMaxWidth};
