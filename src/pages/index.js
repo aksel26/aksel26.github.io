@@ -36,8 +36,7 @@ const Main = ({ data, location }) => {
       <Banner />
       <FeatureCardWrapper>
         <DevContents />
-        <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded-sm md:my-10 dark:bg-gray-700" />
-
+        <hr className="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded-sm md:my-10 dark:bg-gray-700" />
         <LifeLogContents />
       </FeatureCardWrapper>
       <Footer />
