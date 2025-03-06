@@ -9,5 +9,10 @@ export const Wrapper = styled.div`
 `
 
 export const CardWrapper = styled.li`
-  ${tw`py-2 border-solid rounded-sm`}
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: oklch(0.967 0.003 264.542); /* Tailwind의 gray-200 색상 */
+  }
+  ${tw`p-2 border-solid rounded-sm`}
 `

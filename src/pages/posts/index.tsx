@@ -3,6 +3,7 @@ import Layout from "../../layout"
 // import {CardWrapper} from "./styled"
 import React, { useState } from "react"
 import CardWrapper from "./styled"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 const Posts = () => {
   const [activeTab, setActiveTab] = useState(0)
@@ -15,10 +16,10 @@ const Posts = () => {
   ]
   return (
     <Layout>
-      <h1 className="text-4xl font-bold my-10 tracking-wider">
+      <h1 className="text-4xl font-bold mb-5 mt-5 tracking-wider">
         Posts.{tabs[activeTab].label}
       </h1>
-      <div className="flex  transition-all duration-200">
+      <div className="flex  transition-all duration-200 my-4">
         <div className="flex gap-x-4 justify-start">
           {tabs.map(tab => (
             <button
@@ -35,8 +36,9 @@ const Posts = () => {
           ))}
         </div>
       </div>
+      {/* <ScrollArea className="h-[calc(100vh-250px)] w-full"> */}
       <CardWrapper>
-        <ul className="">
+        <ul className="flex flex-col gap-y-4">
           <CardComponent />
           <CardComponent />
           <CardComponent />
@@ -49,6 +51,7 @@ const Posts = () => {
           <CardComponent />
         </ul>
       </CardWrapper>
+      {/* </ScrollArea> */}
     </Layout>
   )
 }
