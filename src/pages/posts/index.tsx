@@ -41,6 +41,12 @@ const Posts = () => {
           <CardComponent />
           <CardComponent />
           <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
         </ul>
       </CardWrapper>
     </Layout>
