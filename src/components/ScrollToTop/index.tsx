@@ -34,13 +34,13 @@ const ScrollToTopButton = () => {
       variant="ghost"
       size="icon"
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 transition-all duration-300 ease-in-out  ${
+      className={`fixed bottom-6 right-6 rounded-none transition-all duration-300 ease-in-out bg-black group ${
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-10 pointer-events-none"
       }`}
     >
-      <ArrowUp />
+      <ArrowUp className="text-white group-hover:text-black" />
     </Button>
   )
 }
