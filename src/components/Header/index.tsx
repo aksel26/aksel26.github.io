@@ -14,9 +14,9 @@ const Header = () => {
         <div style={{ display: "flex", columnGap: 15, alignItems: "center" }}>
           <Link to="/posts">Posts</Link>
           <Link to="/about">About</Link>
-          <div>
+          <Link to="https://github.com/aksel26" target="_blank">
             <GitHubLogoIcon />
-          </div>
+          </Link>
           <CommandMenu />
           <div className="flex items-center gap-x-1">
             <MagnifyingGlassIcon />
