@@ -23,7 +23,7 @@ const ContensCardLifeLog = () => {
               </p>
               <div className="flex justify-between text-sm text-slate-400">
                 <p>2025.02.05</p>
-                <p>Dev</p>
+                <p>Life</p>
               </div>
             </div>
           </S.CardWrapper>
@@ -43,7 +43,7 @@ const ContensCardLifeLog = () => {
               </p>
               <div className="flex justify-between text-sm text-slate-400">
                 <p>2025.02.05</p>
-                <p>Dev</p>
+                <p>Life</p>
               </div>
             </div>
           </S.CardWrapper>
@@ -63,7 +63,7 @@ const ContensCardLifeLog = () => {
               </p>
               <div className="flex justify-between text-sm text-slate-400">
                 <p>2025.02.05</p>
-                <p>Dev</p>
+                <p>Life</p>
               </div>
             </div>
           </S.CardWrapper>
