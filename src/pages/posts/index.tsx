@@ -1,7 +1,8 @@
-import CardComponent from "@/components/CardComponent"
+import CardComponent from "../../components/CardComponent"
 import Layout from "../../layout"
-import * as S from "./styled"
+// import {CardWrapper} from "./styled"
 import React from "react"
+import CardWrapper from "./styled"
 
 const Posts = () => {
   return (
@@ -12,14 +13,14 @@ const Posts = () => {
         <div>개발</div>
         <div>일상</div>
       </div>
-      <S.CardWrapper>
+      <CardWrapper>
         <ul className="">
           <CardComponent />
           <CardComponent />
           <CardComponent />
           <CardComponent />
         </ul>
-      </S.CardWrapper>
+      </CardWrapper>
     </Layout>
   )
 }
