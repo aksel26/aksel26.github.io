@@ -1,5 +1,6 @@
 import React from "react"
 import * as S from "../styled"
+import { CardWrapper } from "../../../styles/card"
 import { Button } from "@/components/ui/button"
 
 const ContensCardDev = () => {
@@ -7,10 +8,11 @@ const ContensCardDev = () => {
     <S.Wrapper>
       <div className="w-full">
         <ul className="">
-          <S.CardWrapper>
+          <CardWrapper>
             <div className="flex flex-col gap-y-1">
-              <div className="font-semibold font-base">
-                orem ipsum odor amet, consectetuer adipiscing elit. Gravida
+              <div className="font-semibold font-base line-clamp-1">
+                모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
+                근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며,
               </div>
               <p className="text-sm text-slate-400 line-clamp-2 ">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Gravida
@@ -26,13 +28,14 @@ const ContensCardDev = () => {
                 <p>Dev</p>
               </div>
             </div>
-          </S.CardWrapper>
-          <S.CardWrapper>
+          </CardWrapper>
+          <CardWrapper>
             <div className="flex flex-col gap-y-1">
-              <div className="font-semibold font-base">
-                orem ipsum odor amet, consectetuer adipiscing elit. Gravida
+              <div className="font-semibold font-base line-clamp-1">
+                모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
+                근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며,
               </div>
-              <p className="text-sm text-slate-400 line-clamp-3 ">
+              <p className="text-sm text-slate-400 line-clamp-2 ">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Gravida
                 class id, bibendum dictum faucibus cursus penatibus. Placerat
                 donec rhoncus finibus inceptos ligula; neque laoreet
@@ -46,13 +49,14 @@ const ContensCardDev = () => {
                 <p>Dev</p>
               </div>
             </div>
-          </S.CardWrapper>
-          <S.CardWrapper>
+          </CardWrapper>
+          <CardWrapper>
             <div className="flex flex-col gap-y-1">
-              <div className="font-semibold font-base">
-                orem ipsum odor amet, consectetuer adipiscing elit. Gravida
+              <div className="font-semibold font-base line-clamp-1">
+                모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
+                근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며,
               </div>
-              <p className="text-sm text-slate-400 line-clamp-3 ">
+              <p className="text-sm text-slate-400 line-clamp-2 ">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Gravida
                 class id, bibendum dictum faucibus cursus penatibus. Placerat
                 donec rhoncus finibus inceptos ligula; neque laoreet
@@ -66,13 +70,14 @@ const ContensCardDev = () => {
                 <p>Dev</p>
               </div>
             </div>
-          </S.CardWrapper>
-          <S.CardWrapper>
+          </CardWrapper>
+          <CardWrapper>
             <div className="flex flex-col gap-y-1">
-              <div className="font-semibold font-base">
-                orem ipsum odor amet, consectetuer adipiscing elit. Gravida
+              <div className="font-semibold font-base line-clamp-1">
+                모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
+                근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며,
               </div>
-              <p className="text-sm text-slate-400 line-clamp-3 ">
+              <p className="text-sm text-slate-400 line-clamp-2 ">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Gravida
                 class id, bibendum dictum faucibus cursus penatibus. Placerat
                 donec rhoncus finibus inceptos ligula; neque laoreet
@@ -86,10 +91,10 @@ const ContensCardDev = () => {
                 <p>Dev</p>
               </div>
             </div>
-          </S.CardWrapper>
-          <S.CardWrapper>
+          </CardWrapper>
+          <CardWrapper>
             <Button className="w-full rounded-none">More</Button>
-          </S.CardWrapper>
+          </CardWrapper>
         </ul>
       </div>
     </S.Wrapper>
