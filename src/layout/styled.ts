@@ -24,7 +24,7 @@ export const ContentWrapper = styled.div`
   word-break: keep-all;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 60px 15px;
+  padding: 60px 18px;
   background-color: ${({ theme }) => theme.color.white100};
   box-shadow: 0 0 30px rgb(0 0 0 / 0.1);
 
