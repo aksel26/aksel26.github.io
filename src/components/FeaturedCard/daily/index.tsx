@@ -3,7 +3,7 @@ import React from "react"
 const FeaturedCardLifeLog = () => {
   return (
     <div className="mt-4">
-      <h4 className="pb-3 font-bold">Most Recent:LifeLog</h4>
+      <h4 className="pb-3 font-bold">Recent:LifeLog</h4>
       <ContensCardLifeLog />
     </div>
   )

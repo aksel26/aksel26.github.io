@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 const FeaturedCardDev = () => {
   return (
     <div className="mt-4">
-      <h4 className="pb-3 font-bold">Most Recent:Dev</h4>
+      <h4 className="pb-3 font-bold">Recent:Dev</h4>
       <ContensCardDev />
     </div>
   )
