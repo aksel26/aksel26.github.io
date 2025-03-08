@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   column-gap: 20px;
 `
 
-export const CardWrapper = styled.li`
+export const CardWrapper = styled.div`
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   &:hover {

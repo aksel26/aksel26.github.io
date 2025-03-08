@@ -24,14 +24,14 @@ export const ContentWrapper = styled.div`
   word-break: keep-all;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 60px 18px;
+  padding-top: 60px;
   background-color: ${({ theme }) => theme.color.white100};
   box-shadow: 0 0 30px rgb(0 0 0 / 0.1);
 
-  @media ${MOBILE_MEDIA_QUERY} {
-    margin-bottom: 39px;
-    padding-bottom: 30px;
-  }
+  // @media ${MOBILE_MEDIA_QUERY} {
+  //   margin-bottom: 39px;
+  //   padding-bottom: 30px;
+  // }
 `
 
 export const Content = styled.main`
@@ -39,5 +39,7 @@ export const Content = styled.main`
   flex-direction: column;
   position: relative;
   width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
   max-width: ${contentMaxWidth};
 `
