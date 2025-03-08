@@ -11,9 +11,8 @@ const FeaturedCardDev = () => {
           Recent:Dev
         </p>
       </div>
-
       <ContensCardDev />
-      <div className="flex gap-x-8 mt-12 justify-between">
+      <div className="md:flex gap-x-12 mt-12 justify-between">
         <div className="flex flex-col gap-y-4 ">
           <img
             src="https://picsum.photos/150"

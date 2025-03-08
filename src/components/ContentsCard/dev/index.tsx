@@ -4,14 +4,14 @@ import * as S from "../styled"
 
 const ContensCardDev = () => {
   return (
-    <S.Wrapper>
-      <div className="w-[55%]">
+    <div className=" md:flex gap-x-12 mt-20">
+      <div className="md:w-[54%]">
         <CardWrapper>
           <div className="flex flex-col gap-y-3">
             <img
               src="https://picsum.photos/384/250"
               alt="thumbnailImg"
-              className="w-auto h-64 rounded-sm"
+              className=" h-[300px] rounded-sm"
             />
             <div className="font-bold text-2xl line-clamp-1">
               모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
@@ -30,7 +30,7 @@ const ContensCardDev = () => {
             <img
               src="https://picsum.photos/384/250"
               alt="thumbnailImg"
-              className="w-auto h-64 rounded-sm"
+              className=" h-[300px] rounded-sm"
             />
             <div className="font-bold text-2xl line-clamp-1">
               모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
@@ -43,7 +43,7 @@ const ContensCardDev = () => {
           </div>
         </CardWrapper>
       </div>
-    </S.Wrapper>
+    </div>
   )
 }
 

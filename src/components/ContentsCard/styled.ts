@@ -4,8 +4,7 @@ import tw from "twin.macro"
 
 export const Wrapper = styled.div`
   display: flex;
-  width: 100%;
-  ${tw`gap-x-4`}
+  ${tw`gap-x-12 mt-20`}
 `
 
 export const CardWrapper = styled.li`
