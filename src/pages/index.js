@@ -11,6 +11,7 @@ import LifeLogContents from "../components/FeaturedCard/daily"
 import FeaturedCardDaily from "../components/FeaturedCard/daily"
 import Banner from "../components/Banner"
 import Footer from "../components/Footer"
+import ScrollBackground from "../components/ScrollBackground"
 // import FeaturedCard from "@/components/FeaturedCard"
 
 const Main = ({ data, location }) => {
@@ -34,8 +35,10 @@ const Main = ({ data, location }) => {
       <Banner />
       <FeatureCardWrapper>
         <DevContents />
-        <hr className="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded-sm md:my-10 dark:bg-gray-700" />
-        <LifeLogContents />
+        <hr className="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded-sm md:my-28 dark:bg-gray-700" />
+        <ScrollBackground>
+          <LifeLogContents />
+        </ScrollBackground>
       </FeatureCardWrapper>
       <Footer />
 
