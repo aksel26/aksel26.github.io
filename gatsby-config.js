@@ -125,14 +125,14 @@ module.exports = {
     "gatsby-plugin-postcss",
     `gatsby-plugin-typescript`,
 
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Pangolin\:400`, // 예: Roboto 폰트의 400, 700 웨이트
-        ],
-        display: "swap", // 폰트 로딩 방식
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `Concert One\:400`, // 예: Roboto 폰트의 400, 700 웨이트
+    //     ],
+    //     display: "swap", // 폰트 로딩 방식
+    //   },
+    // },
   ],
 }
