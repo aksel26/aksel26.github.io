@@ -5,7 +5,7 @@ import tw from "twin.macro"
 export const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  column-gap: 20px;
+  ${tw`gap-x-4`}
 `
 
 export const CardWrapper = styled.li`
