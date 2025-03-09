@@ -3,7 +3,6 @@ import Layout from "../../layout"
 // import {CardWrapper} from "./styled"
 import React, { useState } from "react"
 import CardWrapper from "./styled"
-import { ScrollArea } from "@/components/ui/scroll-area"
 
 const Posts = () => {
   const [activeTab, setActiveTab] = useState(0)
@@ -35,6 +34,29 @@ const Posts = () => {
             </button>
           ))}
         </div>
+      </div>
+      <div className="flex gap-4  flex-wrap mb-4 justify-center md:justify-start">
+        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
+          All
+        </p>
+        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
+          웹 개발
+        </p>
+        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
+          코딩 팁과 트릭
+        </p>
+        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
+          프로젝트 회고
+        </p>
+        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
+          CS
+        </p>
+        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
+          기술 소개
+        </p>
+        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
+          프로그래밍 언어
+        </p>
       </div>
       {/* <ScrollArea className="h-[calc(100vh-250px)] w-full"> */}
       <CardWrapper>
