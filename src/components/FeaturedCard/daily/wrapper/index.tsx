@@ -4,6 +4,7 @@ interface TCardWrapper {
   category: string
   contents: any[]
 }
+import { ChevronRight } from "lucide-react"
 
 export const VerticalCardWrapper = ({ category, contents }: TCardWrapper) => {
   const categoryLower = category.toLowerCase()
@@ -12,25 +13,40 @@ export const VerticalCardWrapper = ({ category, contents }: TCardWrapper) => {
     <div className="md:flex gap-x-10 items-start mt-20  ">
       <div className="md:w-[35%] bg-slate-100 h-full relative md:sticky md:top-48">
         {categoryLower === "travel" && (
-          <StaticImage
-            src="../../../../images/travel.jpg"
-            alt="travel"
-            className="opacity-75 h-32 sm:h-32 md:h-96"
-          />
+          <div className="relative">
+            <StaticImage
+              src="../../../../images/travel.jpg"
+              alt="travel"
+              className="opacity-75 h-32 sm:h-32 md:h-96"
+            />
+            <span className="absolute right-6 bottom-4 bg-white p-2 rounded-sm opacity-50 hover:bg-black transition cursor-pointer group">
+              <ChevronRight className="text-[oklch(0.274_0.006_286.033)] group-hover:text-white transition" />
+            </span>
+          </div>
         )}
         {categoryLower === "food" && (
-          <StaticImage
-            src="../../../../images/cafe.jpg"
-            alt="food"
-            className="opacity-75 h-32 sm:h-32 md:h-96"
-          />
+          <div className="relative">
+            <StaticImage
+              src="../../../../images/cafe.jpg"
+              alt="cafe"
+              className="opacity-75 h-32 sm:h-32 md:h-96"
+            />
+            <span className="absolute right-6 bottom-4 bg-white p-2 rounded-sm opacity-50 hover:bg-black transition cursor-pointer group">
+              <ChevronRight className="text-[oklch(0.274_0.006_286.033)] group-hover:text-white transition" />
+            </span>
+          </div>
         )}
         {categoryLower === "etc" && (
-          <StaticImage
-            src="../../../../images/etc.jpg"
-            alt="etc"
-            className="opacity-75 h-32 sm:h-32 md:h-96"
-          />
+          <div className="relative">
+            <StaticImage
+              src="../../../../images/etc.jpg"
+              alt="etc"
+              className="opacity-75 h-32 sm:h-32 md:h-96"
+            />
+            <span className="absolute right-6 bottom-4 bg-white p-2 rounded-sm opacity-50 hover:bg-black transition cursor-pointer group">
+              <ChevronRight className="text-[oklch(0.274_0.006_286.033)] group-hover:text-white transition" />
+            </span>
+          </div>
         )}
 
         <p className="absolute bottom-3 left-8 text-white font-bold  text-6xl md:text-8xl tracking-wider">

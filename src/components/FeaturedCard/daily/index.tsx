@@ -1,7 +1,6 @@
 // import ContensCardLifeLog from "@/components/ContentsCard/daily"
 import React from "react"
 import { VerticalCardWrapper } from "./wrapper"
-
 const contents = [
   {
     title:
