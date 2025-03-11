@@ -3,19 +3,13 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { contentMaxWidth, MOBILE_MEDIA_QUERY } from "../../layout/const"
 import { hoverUnderline } from "../../styles/const"
-
+import tw from "twin.macro"
 // import { contentMaxWidth, hoverUnderline, MOBILE_MEDIA_QUERY } from '@/src/styles/const';
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 60px;
   position: fixed;
-  top: 0;
-  left: 0;
-  background-color: ${({ theme }) => theme.color.white100};
-  z-index: 100;
+
+  ${tw`flex justify-between w-[90%] md:w-[700px] h-[60px] shadow-2xl rounded-xl z-20 bg-white top-3 left-1/2 -translate-x-1/2 px-5`}
 
   @media ${MOBILE_MEDIA_QUERY} {
     padding: 0 15px;
@@ -25,7 +19,7 @@ export const Wrapper = styled.div`
 export const Header = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   width: 100%;
   max-width: ${contentMaxWidth};
 
