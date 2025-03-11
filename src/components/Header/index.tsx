@@ -1,10 +1,16 @@
-import { GitHubLogoIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons"
-import React from "react"
-import CommandMenu from "./CommandMenu"
-import * as S from "./styled"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
 import { Link } from "gatsby"
-import { Search } from "lucide-react"
 import { StaticImage } from "gatsby-plugin-image"
+import { Search } from "lucide-react"
+import React from "react"
+import * as S from "./styled"
 const Header = () => {
   return (
     <S.Wrapper>
@@ -18,17 +24,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div className="flex gap-x-8 items-center flex-1">
-          <div className="relative flex items-center w-full w-[230px] md:flex-1">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <Search size={15} />
-            </div>
-            <input
-              type="text"
-              className="pl-10 w-full p-1.5 bg-gray-50 border border-gray-100 text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500"
-              placeholder="검색할 내용을 입력해 주세요."
-            />
-          </div>
+        <div className="flex gap-x-8 items-center">
           <Link className="text-sm" to="/posts">
             Posts
           </Link>
@@ -36,8 +32,29 @@ const Header = () => {
             About
           </Link>
 
-          {/* <Button variant="outline" size="icon">
-          </Button> */}
+          <Dialog>
+            <DialogTrigger>
+              <MagnifyingGlassIcon />
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogDescription>
+                  <div className="flex w-full max-w-sm items-center space-x-2">
+                    <div className="relative flex items-center w-full w-full md:flex-1">
+                      <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                        <Search size={15} />
+                      </div>
+                      <input
+                        type="text"
+                        className="pl-7 w-full p-1.5  text-gray-900 text-sm focus:outline-none focus:ring-0"
+                        placeholder="검색할 내용을 입력해 주세요."
+                      />
+                    </div>
+                  </div>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </div>
       </S.Header>
     </S.Wrapper>
