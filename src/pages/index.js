@@ -35,10 +35,8 @@ const Main = ({ data, location }) => {
       <Banner />
       <FeatureCardWrapper>
         <DevContents />
-        <hr className="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded-sm md:my-28 dark:bg-gray-700" />
-        {/* <ScrollBackground> */}
+        <hr className="w-full h-1 mx-auto my-32 bg-gray-100 border-0 rounded-sm md:my-28 dark:bg-gray-700" />
         <LifeLogContents />
-        {/* </ScrollBackground> */}
       </FeatureCardWrapper>
       <Footer />
 

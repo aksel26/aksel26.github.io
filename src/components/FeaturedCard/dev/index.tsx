@@ -6,11 +6,11 @@ import { ArrowRight } from "lucide-react"
 const FeaturedCardDev = () => {
   return (
     <div className="mt-4">
-      <div className="bg-black w-max mb-4 px-8 py-2 pl-8">
-        <p className=" font-bold text-3xl text-white tracking-wider">
+      {/* <div className="w-max mb-4 px-8 py-2 pl-8">
+        <p className=" font-bold text-3xl text-black tracking-wider">
           Recent:Dev.
         </p>
-      </div>
+      </div> */}
 
       <ContensCardDev />
       <div className="flex md:flex-row flex-col gap-y-12 gap-x-12 mt-12 justify-between px-8 md:px-0">
