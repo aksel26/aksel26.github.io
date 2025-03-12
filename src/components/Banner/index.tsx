@@ -7,7 +7,6 @@ const Banner = () => {
 
       <div className="flex flex-col gap-y-3">
         <p className="text-base  text-gray-400">
-          코드와 커피 향 사이를 거닐며 순간을 기록하는{" "}
           <span className="text-gray-800">프론트엔드 개발자</span>입니다.
         </p>
 

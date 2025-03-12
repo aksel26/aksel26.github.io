@@ -9,7 +9,7 @@ export const VerticalCardWrapper = ({ category, contents }: TCardWrapper) => {
   const categoryLower = category.toLowerCase()
 
   return (
-    <div className="md:flex gap-x-10 items-start mt-20  ">
+    <div className="md:flex gap-x-10 items-start md:mt-20  ">
       <div className="md:w-[35%] bg-slate-100 h-full relative md:sticky md:top-48 sticky top-14 z-10">
         {categoryLower === "travel" && (
           <StaticImage
@@ -37,7 +37,7 @@ export const VerticalCardWrapper = ({ category, contents }: TCardWrapper) => {
           {category}
         </p>
       </div>
-      <div className="flex flex-1 flex-col gap-y-12 mx-auto mt-12 md:mt-0 px-8 md:px-0">
+      <div className="flex flex-1 flex-col gap-y-12 mx-auto mt-12 md:mt-0 px-8 md:px-0 md:pb-0 pb-8">
         {contents.map((content: any, index: number) => (
           <div className="flex items-center gap-x-5 md:gap-x-8  " key={index}>
             <img
