@@ -1,5 +1,5 @@
 // import ContensCardLifeLog from "@/components/ContentsCard/daily"
-import React from "react"
+import React, { forwardRef } from "react"
 import { VerticalCardWrapper } from "./wrapper"
 const contents = [
   {
@@ -58,29 +58,14 @@ const contents = [
   },
 ]
 
-const travelScroll = { imgHeight: [2600, 2800], font: [2780, 2890] }
-const foodScrollY = { imgHeight: [3400, 3600], font: [3580, 3691] }
-const etcScrollY = { imgHeight: [4380, 4580], font: [4660, 4771] }
-const FeaturedCardLifeLog = () => {
+const LifeLogContainer = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className="">
-      <VerticalCardWrapper
-        category={"Travel"}
-        scroll={travelScroll}
-        contents={contents}
-      />
-      <VerticalCardWrapper
-        category={"Food"}
-        scroll={foodScrollY}
-        contents={contents}
-      />
-      <VerticalCardWrapper
-        category={"etc"}
-        scroll={etcScrollY}
-        contents={contents}
-      />
-    </div>
+    <section ref={ref} className="flex flex-col md:gap-y-8">
+      <VerticalCardWrapper category={"Travel"} contents={contents} />
+      <VerticalCardWrapper category={"Food"} contents={contents} />
+      <VerticalCardWrapper category={"etc"} contents={contents} />
+    </section>
   )
-}
+})
 
-export default FeaturedCardLifeLog
+export default LifeLogContainer

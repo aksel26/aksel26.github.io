@@ -1,10 +1,9 @@
 import React from "react"
 import { CardWrapper } from "../../../styles/card"
-import * as S from "../styled"
 
-const ContensCardDev = () => {
+const TopListCard = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-y-12  md:gap-x-12 mt-12 px-8 md:px-0">
+    <div className="flex flex-col md:flex-row gap-y-12  md:gap-x-12 px-8 md:px-0">
       <div className="md:w-[54%] ">
         <CardWrapper>
           <div className="flex flex-col gap-y-3">
@@ -69,4 +68,4 @@ const ContensCardDev = () => {
   )
 }
 
-export default ContensCardDev
+export default TopListCard
