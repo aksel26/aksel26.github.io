@@ -57,12 +57,28 @@ const contents = [
     tag: "여행",
   },
 ]
+
+const travelScroll = { imgHeight: [2600, 2800], font: [2780, 2890] }
+const foodScrollY = { imgHeight: [3400, 3600], font: [3580, 3691] }
+const etcScrollY = { imgHeight: [4380, 4580], font: [4660, 4771] }
 const FeaturedCardLifeLog = () => {
   return (
     <div className="">
-      <VerticalCardWrapper category={"Travel"} contents={contents} />
-      <VerticalCardWrapper category={"Food"} contents={contents} />
-      <VerticalCardWrapper category={"etc"} contents={contents} />
+      <VerticalCardWrapper
+        category={"Travel"}
+        scroll={travelScroll}
+        contents={contents}
+      />
+      <VerticalCardWrapper
+        category={"Food"}
+        scroll={foodScrollY}
+        contents={contents}
+      />
+      <VerticalCardWrapper
+        category={"etc"}
+        scroll={etcScrollY}
+        contents={contents}
+      />
     </div>
   )
 }
