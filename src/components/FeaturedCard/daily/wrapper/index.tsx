@@ -1,6 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 interface TCardWrapper {
   category: string
@@ -33,38 +32,23 @@ export const VerticalCardWrapper = ({
   )
   const image = imageNode ? getImage(imageNode.node) : null
 
-  const { scrollY } = useScroll() // 스크롤 위치 추적
-
-  // 스크롤 위치에 따라 높이와 폰트 크기 변환
-  const height = useTransform(scrollY, scroll?.imgHeight, ["120px", "60px"]) // md:h-96 (384px) -> 60px
-  const fontSize = useTransform(scrollY, scroll?.font, ["40px", "30px"]) // text-8xl -> text-2xl
   return (
-    <div className="md:flex gap-x-10 items-start md:mt-20  ">
-      <motion.div className="md:w-[35%] bg-slate-100 h-full relative md:sticky md:top-48 sticky top-14 z-10">
+    <div className="md:flex gap-x-10 items-start md:mt-0  ">
+      <div className="md:w-[22%] bg-slate-100 h-full relative md:sticky md:top-64 sticky top-14 z-10">
         {image ? (
-          <motion.div
-            style={{ height }} // 동적 높이 적용
-            className="opacity-75 overflow-hidden" // 높이 변화 시 잘리지 않도록
-          >
-            <GatsbyImage
-              image={image}
-              alt={category}
-              // className="opacity-75 h-32 sm:h-32 md:h-96"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
+          <GatsbyImage
+            image={image}
+            alt={category}
+            className="opacity-60 h-32 sm:h-32 md:h-96"
+          />
         ) : (
           <p>이미지 불러오기 오류</p>
         )}
 
-        <motion.p
-          style={{ fontSize }}
-          className="absolute md:bottom-3 bottom-0 left-8 text-white font-extrabold tracking-wider"
-          // className="absolute bottom-3 left-8 text-white font-bold  text-6xl md:text-8xl tracking-wider"
-        >
+        <p className="absolute bottom-3 left-8 text-white font-bold  text-4xl md:text-6xl tracking-wider">
           {category}
-        </motion.p>
-      </motion.div>
+        </p>
+      </div>
       <div className="flex flex-1 flex-col gap-y-12 mx-auto mt-12 md:mt-0 px-8 md:px-0 md:pb-0 pb-8">
         {contents.map((content: any, index: number) => (
           <div className="flex items-center gap-x-5 md:gap-x-8  " key={index}>
