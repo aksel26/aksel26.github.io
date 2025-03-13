@@ -15,10 +15,10 @@ export const Wrapper = styled.div`
   top: 0;
   left: 0;
   background-color: ${({ theme }) => theme.color.white100};
-  z-index: 1;
+  z-index: 20;
 
   @media ${MOBILE_MEDIA_QUERY} {
-    padding: 0 15px;
+    padding: 0 32px;
   }
 `
 
