@@ -6,6 +6,7 @@ const CardWrapper = styled.div`
   display: flex;
   width: 100%;
   column-gap: 20px;
+  ${tw`px-8`}
 `
 
 export default CardWrapper
