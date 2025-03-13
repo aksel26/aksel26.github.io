@@ -1,17 +1,12 @@
+import { graphql } from "gatsby"
 import * as React from "react"
-import { Link, graphql } from "gatsby"
 
 // import Layout from "../components/layout"
+import Banner from "../components/Banner"
+import FeatureCardWrapper from "../components/FeatureCardWrapper"
+import Footer from "../components/Footer"
 import Seo from "../components/seo"
 import Layout from "../layout"
-import Header from "../components/Header"
-import FeatureCardWrapper from "../components/FeatureCardWrapper"
-import DevContents from "../components/FeaturedCard/dev"
-import LifeLogContents from "../components/FeaturedCard/daily"
-import FeaturedCardDaily from "../components/FeaturedCard/daily"
-import Banner from "../components/Banner"
-import Footer from "../components/Footer"
-import ScrollBackground from "../components/ScrollBackground"
 // import FeaturedCard from "@/components/FeaturedCard"
 
 const Main = ({ data, location }) => {
@@ -33,11 +28,9 @@ const Main = ({ data, location }) => {
   return (
     <Layout>
       <Banner />
-      <FeatureCardWrapper>
-        <DevContents />
-        <hr className="w-full h-1 mx-auto my-32 bg-gray-100 border-0 rounded-sm md:my-28 dark:bg-gray-700" />
-        <LifeLogContents />
-      </FeatureCardWrapper>
+
+      <FeatureCardWrapper />
+
       <Footer />
 
       {/* <Layout location={location} title={siteTitle}> */}
