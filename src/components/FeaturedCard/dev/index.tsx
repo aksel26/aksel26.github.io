@@ -5,7 +5,7 @@ const DevContainer = () => {
   return (
     <section className="mt-0">
       <TopListCard />
-      <div className="flex md:flex-row flex-col gap-y-12 gap-x-12 mt-12 justify-between px-8 md:px-0">
+      <div className="flex md:flex-row flex-col gap-y-12 gap-x-5 mt-12 justify-between px-8 md:px-0">
         {/* <SubCard/> */}
         <div className="flex flex-col gap-y-3 ">
           <img
