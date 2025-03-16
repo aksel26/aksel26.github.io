@@ -15,14 +15,12 @@ const blogPost = path.resolve(`./src/templates/blog-post.js`)
  */
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-
   const result = await graphql(`
-    query {
+    {
       allMarkdownRemark {
         edges {
           node {
-            frontmatter {
-              title
+            fields {
               slug
             }
           }
@@ -39,14 +37,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
+  // result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  //   const slug =
+  //     node.frontmatter.slug ||
+  //     createFilePath({ node, getNode, basePath: `content` })
+  //   createPage({
+  //     path: `/${slug}`,
+  //     component: blogPost,
+  //     relativeDirectory: node.parent.relativeDirectory,
+  //   })
+  // })
+
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const slug =
-      node.frontmatter.slug ||
-      createFilePath({ node, getNode, basePath: `content` })
     createPage({
-      path: `/${slug}`,
-      component: blogPost,
-      context: slug,
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/blog-post.js`),
+      context: {
+        slug: node.fields.slug,
+      },
     })
   })
 }
@@ -84,7 +92,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       slug: String
       tags: [String!]
+      thumbnail: File @fileByRelativePath
     }
+
+    
 `
 
   // Also explicitly define the Markdown frontmatter
@@ -93,7 +104,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs)
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   const output = getConfig().output || {}
 
   actions.setWebpackConfig({
@@ -103,6 +114,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         components: path.resolve(__dirname, "src/components"),
         utils: path.resolve(__dirname, "src/utils"),
         hooks: path.resolve(__dirname, "src/hooks"),
+        lib: path.resolve(__dirname, "src/lib"),
+        styles: path.resolve(__dirname, "src/styles"),
       },
     },
   })
