@@ -7,12 +7,15 @@ const DevContainer = () => {
       <TopListCard />
       <div className="flex md:flex-row flex-col gap-y-12 gap-x-5 mt-12 justify-between px-8 md:px-0">
         {/* <SubCard/> */}
-        <div className="flex flex-col gap-y-3 ">
-          <img
-            src="https://picsum.photos/150"
-            alt="card"
-            className="rounded-sm h-56"
-          />
+        <div className="group cursor-pointer flex flex-col gap-y-3">
+          <div className=" h-[240px] md:h-[224px] overflow-hidden ">
+            <img
+              src="https://picsum.photos/150"
+              alt="card"
+              className="rounded-sm w-full h-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110"
+            />
+          </div>
+
           <div className="font-bold text-xl md:text-xl line-clamp-1">
             모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
             근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며,
@@ -32,13 +35,16 @@ const DevContainer = () => {
             <p>Dev</p>
           </div>
         </div>
-        <div className="flex flex-col gap-y-3 ">
-          <img
-            src="https://picsum.photos/150"
-            alt="card"
-            className="rounded-sm h-56"
-          />
-          <div className="font-bold text-xl md:text-2xl line-clamp-1">
+        <div className="group cursor-pointer flex flex-col gap-y-3">
+          <div className=" h-[240px] md:h-[224px] overflow-hidden ">
+            <img
+              src="https://picsum.photos/150"
+              alt="card"
+              className="rounded-sm w-full h-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110"
+            />
+          </div>
+
+          <div className="font-bold text-xl md:text-xl line-clamp-1">
             모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
             근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며,
           </div>
@@ -57,13 +63,16 @@ const DevContainer = () => {
             <p>Dev</p>
           </div>
         </div>
-        <div className="flex flex-col gap-y-3 ">
-          <img
-            src="https://picsum.photos/150"
-            alt="card"
-            className="rounded-sm h-56"
-          />
-          <div className="font-bold text-xl md:text-2xl line-clamp-1">
+        <div className="group cursor-pointer flex flex-col gap-y-3">
+          <div className=" h-[240px] md:h-[224px] overflow-hidden ">
+            <img
+              src="https://picsum.photos/150"
+              alt="card"
+              className="rounded-sm w-full h-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110"
+            />
+          </div>
+
+          <div className="font-bold text-xl md:text-xl line-clamp-1">
             모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
             근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며,
           </div>
@@ -82,13 +91,16 @@ const DevContainer = () => {
             <p>Dev</p>
           </div>
         </div>
-        <div className="flex flex-col gap-y-3 ">
-          <img
-            src="https://picsum.photos/150"
-            alt="card"
-            className="rounded-sm h-56"
-          />
-          <div className="font-bold text-xl md:text-2xl line-clamp-1">
+        <div className="group cursor-pointer flex flex-col gap-y-3">
+          <div className=" h-[240px] md:h-[224px] overflow-hidden ">
+            <img
+              src="https://picsum.photos/150"
+              alt="card"
+              className="rounded-sm w-full h-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110"
+            />
+          </div>
+
+          <div className="font-bold text-xl md:text-xl line-clamp-1">
             모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로
             근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며,
           </div>

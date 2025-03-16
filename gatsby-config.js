@@ -22,11 +22,23 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
+    "gatsby-plugin-postcss",
+    `gatsby-plugin-typescript`,
+    {
+      resolve: "gatsby-plugin-typescript",
+      options: {
+        isTSX: true,
+        allExtensions: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        name: `content`,
+        path: `${__dirname}/content`,
       },
     },
     {
@@ -41,23 +53,39 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: "gatsby-remark-smartypants",
             options: {
-              maxWidth: 630,
+              dashes: "oldschool",
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
+            resolve: "gatsby-remark-prismjs",
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              classPrefix: "language-",
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 768,
+              quality: 100,
+              withWebp: true,
+            },
+          },
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {},
+          },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow",
+            },
+          },
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -66,9 +94,6 @@ module.exports = {
             site {
               siteMetadata {
                 title
-                description
-                siteUrl
-                site_url: siteUrl
               }
             }
           }
@@ -78,11 +103,7 @@ module.exports = {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
                   date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
                 })
               })
             },
@@ -121,18 +142,5 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-styled-components`,
-    "gatsby-plugin-postcss",
-    `gatsby-plugin-typescript`,
-
-    // {
-    //   resolve: `gatsby-plugin-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       `Concert One\:400`, // 예: Roboto 폰트의 400, 700 웨이트
-    //     ],
-    //     display: "swap", // 폰트 로딩 방식
-    //   },
-    // },
   ],
 }
