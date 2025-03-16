@@ -1,15 +1,11 @@
 import React from "react"
 
-const Banner = () => {
+const Banner = ({ siteTitle }: any) => {
   return (
     <div className="w-full pt-24 bg-slate-100 pb-12 px-8">
-      <h1 className="text-4xl font-extrabold mb-3">HM-Blog</h1>
+      <h1 className="text-4xl font-extrabold mb-3">{siteTitle}</h1>
 
       <div className="flex flex-col gap-y-3">
-        {/* <p className="text-base  text-gray-400">
-          <span className="text-gray-800">프론트엔드 개발자</span>입니다.
-        </p> */}
-
         <p className="text-gray-400">
           코드처럼 깔끔하고 오류 없는 일상을 '디버깅'하듯, 취미와 개발을
           조화롭게 균형을 잡아가는 삶을 기록합니다.
