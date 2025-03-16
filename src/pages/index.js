@@ -1,37 +1,27 @@
 import { graphql } from "gatsby"
 import * as React from "react"
 
-// import Layout from "../components/layout"
 import Banner from "../components/Banner"
-import FeatureCardWrapper from "../components/FeatureCardWrapper"
+import MainCardWrapper from "components/MainCardWrapper"
 import Footer from "../components/Footer"
 import Seo from "../components/seo"
 import Layout from "../layout"
-// import FeaturedCard from "@/components/FeaturedCard"
 
-const Main = ({ data, location }) => {
+const Main = ({ data }) => {
   console.log("data: ", data)
   const siteTitle = data.site.siteMetadata?.title || `Title`
   console.log("siteTitle: ", siteTitle)
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.allMarkdownRemark.edges
   console.log("posts: ", posts)
 
   if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
+    return <p>글이 없습니다ㅏ.</p>
   }
 
   return (
     <Layout>
-      <Banner />
-      <FeatureCardWrapper />
+      <Banner siteTitle={siteTitle} />
+      <MainCardWrapper posts={posts} />
       <Footer />
     </Layout>
   )
@@ -47,21 +37,31 @@ export default Main
 export const Head = () => <Seo title="All posts" />
 
 export const pageQuery = graphql`
-  {
+  query {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt(pruneLength: 160)
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "YYYY년 MM월 DD일")
+            title
+            tags
+            summary
+            mainCategory
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(width: 500, height: 700, layout: CONSTRAINED)
+              }
+            }
+          }
         }
       }
     }
