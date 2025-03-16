@@ -1,16 +1,16 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Search } from "lucide-react"
 import React from "react"
 import * as S from "./styled"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTrigger,
+} from "components/ui/dialog"
 const Header = () => {
   return (
     <S.Wrapper>
