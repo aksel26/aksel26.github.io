@@ -55,7 +55,7 @@ export const pageQuery = graphql`
             mainCategory
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 500, height: 700, layout: CONSTRAINED)
+                gatsbyImageData(width: 1000, height: 700, layout: CONSTRAINED)
               }
             }
           }
