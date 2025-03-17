@@ -1,8 +1,8 @@
 // import ContensCardLifeLog from "@/components/ContentsCard/daily"
-import React, { forwardRef } from "react"
+import React, { forwardRef, useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { StaticImage } from "gatsby-plugin-image"
 import { VerticalCardWrapper } from "./wrapper"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { graphql, useStaticQuery } from "gatsby"
 const contents = [
   {
     title:
@@ -61,44 +61,90 @@ const contents = [
 ]
 
 const LifeLogContainer = forwardRef<HTMLDivElement>((props, ref) => {
-  const data = useStaticQuery(graphql`
-    query {
-      allFile(filter: { sourceInstanceName: { eq: "images" } }) {
-        edges {
-          node {
-            relativePath
-            childImageSharp {
-              gatsbyImageData(width: 600)
-            }
-          }
-        }
-      }
-    }
-  `)
+  const containerRef = useRef(null)
 
-  const imageNode = data.allFile.edges.find(
-    (edge: any) => edge.node.relativePath === `${"Food".toLowerCase()}.jpg`
-  )
-  const image = imageNode ? getImage(imageNode.node) : null
-
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  })
+  const y1 = useTransform(scrollYProgress, [0, 0.33], ["0%", "0%"]) // 첫 번째 이미지 고정
+  const y2 = useTransform(scrollYProgress, [0.344, 0.438], ["100%", "0%"]) // 두 번째 이미지
+  const y3 = useTransform(scrollYProgress, [0.618, 0.708], ["100%", "0%"]) // 세 번째 이미지
   return (
     <section ref={ref} className="md:flex md:gap-y-8 gap-x-5">
-      <div className="md:w-full bg-slate-100 h-full relative md:sticky md:top-40 sticky top-14 z-10">
-        {image ? (
-          <GatsbyImage
-            image={image}
-            alt={"Food"}
-            className="opacity-60 h-32 sm:h-32 md:h-96"
+      <div
+        className="sticky top-44 relative w-full h-20 md:h-96 overflow-hidden z-20 top-[112px] md:top-40"
+        ref={containerRef}
+      >
+        {/* 첫 번째 이미지 (기본 고정) */}
+        <div>
+          <StaticImage
+            src="../../../images/travel.jpg"
+            alt="Image 1"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
           />
-        ) : (
-          <p>이미지 불러오기 오류</p>
-        )}
+          <p className="absolute left-4 bottom-4 text-white text-5xl font-extrabold">
+            Travel
+          </p>
+        </div>
+        {/* 두 번째 이미지 */}
+        <motion.div
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            y: y2,
+          }}
+        >
+          <StaticImage
+            src="../../../images/food.jpg"
+            alt="Image 2"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+          <p className="absolute left-4 bottom-4 text-white text-5xl font-extrabold">
+            Food
+          </p>
+        </motion.div>
 
-        <p className="absolute bottom-3 left-8 text-white font-bold  text-4xl md:text-6xl tracking-wider">
-          Food
-        </p>
+        {/* 세 번째 이미지 */}
+        <motion.div
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            y: y3,
+          }}
+        >
+          <StaticImage
+            src="../../../images/etc.jpg"
+            alt="Image 3"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+          <p className="absolute left-4 bottom-4 text-white text-5xl font-extrabold">
+            Etc
+          </p>
+        </motion.div>
       </div>
-      <div className="flex flex-col md:gap-y-24">
+      <div className="flex flex-col md:gap-y-24" ref={containerRef}>
         <VerticalCardWrapper category={"Travel"} contents={contents} />
         <VerticalCardWrapper category={"Food"} contents={contents} />
         <VerticalCardWrapper category={"Etc"} contents={contents} />
