@@ -67,17 +67,21 @@ const DevContainer = ({ posts }: any) => {
           </div>
         </Link>
       </div>
-      <div className="flex md:flex-row flex-col gap-y-12 gap-x-5 mt-12 justify-between px-8 md:px-0 w-full">
+      <div className="flex md:flex-row flex-col gap-y-12 gap-x-5 mt-12 px-8 md:px-0 w-full">
         {posts.map(
-          ({
-            node: {
-              frontmatter: { date, summary, thumbnail, title },
-              fields: { slug },
-            },
-          }: any) => (
+          (
+            {
+              node: {
+                frontmatter: { date, summary, thumbnail, title },
+                fields: { slug },
+              },
+            }: any,
+            index: number
+          ) => (
             <Link
               className="group cursor-pointer flex flex-col gap-y-3 md:w-1/4"
               to={slug}
+              key={index}
             >
               <div className=" h-[240px] md:h-[224px] overflow-hidden ">
                 <GatsbyImage
