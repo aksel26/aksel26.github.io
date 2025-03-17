@@ -1,54 +1,14 @@
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
+
 interface TCardWrapper {
   category: string
   contents: any[]
   scroll?: any
 }
 
-export const VerticalCardWrapper = ({
-  category,
-  contents,
-  scroll,
-}: TCardWrapper) => {
-  const data = useStaticQuery(graphql`
-    query {
-      allFile(filter: { sourceInstanceName: { eq: "images" } }) {
-        edges {
-          node {
-            relativePath
-            childImageSharp {
-              gatsbyImageData(width: 600)
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const imageNode = data.allFile.edges.find(
-    (edge: any) => edge.node.relativePath === `${category.toLowerCase()}.jpg`
-  )
-  const image = imageNode ? getImage(imageNode.node) : null
-
+export const VerticalCardWrapper = ({ contents }: TCardWrapper) => {
   return (
     <div className="md:flex gap-x-10 items-start md:mt-0  ">
-      {/* <div className="md:w-[22%] bg-slate-100 h-full relative md:sticky md:top-64 sticky top-14 z-10">
-        {image ? (
-          <GatsbyImage
-            image={image}
-            alt={category}
-            className="opacity-60 h-32 sm:h-32 md:h-96"
-          />
-        ) : (
-          <p>이미지 불러오기 오류</p>
-        )}
-
-        <p className="absolute bottom-3 left-8 text-white font-bold  text-4xl md:text-6xl tracking-wider">
-          {category}
-        </p>
-      </div> */}
       <div className="flex flex-1 flex-col gap-y-5 mx-auto mt-12 md:mt-0 px-8 md:px-0 md:pb-0 pb-8">
         {contents.map((content: any, index: number) => (
           <div className="flex items-center gap-x-5 md:gap-x-8  " key={index}>
