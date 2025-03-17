@@ -12,7 +12,7 @@ type LayoutProps = {
   children: React.ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({ location, title, children }: any) => {
+const Layout: React.FC<LayoutProps> = ({ children }: any) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
