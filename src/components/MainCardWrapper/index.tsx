@@ -9,7 +9,6 @@ import CategoryTabs from "../CategoryTabs"
 const SCROLL_OFFSET = 150
 
 const MainCardWrapper: React.FC = ({ posts }: any) => {
-  console.log("posts: ", posts)
   const [category, setCategory] = useState(1)
 
   const lifeLogRef = useIntersectionObserver({

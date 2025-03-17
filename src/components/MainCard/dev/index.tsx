@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const DevContainer = ({ posts }: any) => {
-  console.log("post: ", posts)
   return (
     <section className="mt-0">
       <div className="flex flex-col md:flex-row gap-y-12  md:gap-x-5 px-8 md:px-0">
@@ -73,9 +72,13 @@ const DevContainer = ({ posts }: any) => {
           ({
             node: {
               frontmatter: { date, summary, thumbnail, title },
+              fields: { slug },
             },
           }: any) => (
-            <div className="group cursor-pointer flex flex-col gap-y-3 md:w-1/4">
+            <Link
+              className="group cursor-pointer flex flex-col gap-y-3 md:w-1/4"
+              to={slug}
+            >
               <div className=" h-[240px] md:h-[224px] overflow-hidden ">
                 <GatsbyImage
                   image={thumbnail.childImageSharp.gatsbyImageData}
@@ -94,7 +97,7 @@ const DevContainer = ({ posts }: any) => {
                 <p>{date}</p>
                 <p>Dev</p>
               </div>
-            </div>
+            </Link>
           )
         )}
       </div>

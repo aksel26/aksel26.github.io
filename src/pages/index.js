@@ -8,11 +8,8 @@ import Seo from "../components/seo"
 import Layout from "../layout"
 
 const Main = ({ data }) => {
-  console.log("data: ", data)
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  console.log("siteTitle: ", siteTitle)
   const posts = data.allMarkdownRemark.edges
-  console.log("posts: ", posts)
 
   if (posts.length === 0) {
     return <p>글이 없습니다ㅏ.</p>
