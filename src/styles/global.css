@@ -67,3 +67,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.gatsby-highlight {
+  font-size: 13px;
+}
