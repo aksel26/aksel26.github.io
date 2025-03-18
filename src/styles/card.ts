@@ -9,4 +9,5 @@ export const Wrapper = styled.div`
 
 export const CardWrapper = styled.div`
   cursor: pointer;
+  width: 100%;
 `
