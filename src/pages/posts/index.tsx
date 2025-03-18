@@ -3,10 +3,12 @@ import Layout from "../../layout"
 // import {CardWrapper} from "./styled"
 import React, { useState } from "react"
 import CardWrapper from "./styled"
+import { graphql, Link } from "gatsby"
 
-const Posts = () => {
+const Posts = ({ data }: any) => {
   const [activeTab, setActiveTab] = useState(0)
   console.log("🚀 ~ Posts ~ activeTab:", activeTab)
+  const posts = data?.allMarkdownRemark.edges
 
   const tabs = [
     { id: 0, label: "All", content: "첫 번째 탭의 내용입니다." },
@@ -61,7 +63,20 @@ const Posts = () => {
       </div> */}
         {/* <ScrollArea className="h-[calc(100vh-250px)] w-full"> */}
         <CardWrapper>
-          <ul className="flex flex-col gap-y-8">
+          <ul className="flex flex-col gap-y-8 flex-1">
+            {posts.map(
+              ({
+                node: {
+                  fields: { slug },
+                  frontmatter,
+                },
+              }: any) => (
+                <Link to={slug} key={slug}>
+                  <CardComponent details={frontmatter} />
+                </Link>
+              )
+            )}
+            {/* <CardComponent />
             <CardComponent />
             <CardComponent />
             <CardComponent />
@@ -69,9 +84,7 @@ const Posts = () => {
             <CardComponent />
             <CardComponent />
             <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
+            <CardComponent /> */}
           </ul>
         </CardWrapper>
         {/* </ScrollArea> */}
@@ -81,3 +94,35 @@ const Posts = () => {
 }
 
 export default Posts
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt(pruneLength: 160)
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "YYYY년 MM월 DD일")
+            title
+            tags
+            summary
+            mainCategory
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(width: 1000, height: 700, layout: CONSTRAINED)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
