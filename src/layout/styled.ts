@@ -25,8 +25,8 @@ export const ContentWrapper = styled.div`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // padding-top: 60px;
-  background-color: ${({ theme }) => theme.color.white100};
-  box-shadow: 0 0 30px rgb(0 0 0 / 0.1);
+  // background-color: ${({ theme }) => theme.color.white100};
+  // box-shadow: 0 0 30px rgb(0 0 0 / 0.1);
 
   // @media ${MOBILE_MEDIA_QUERY} {
   //   margin-bottom: 39px;
@@ -40,6 +40,6 @@ export const Content = styled.main`
   position: relative;
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 200px;
   max-width: ${contentMaxWidth};
 `

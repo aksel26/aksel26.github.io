@@ -2,16 +2,15 @@ import { contentMaxWidth, MOBILE_MEDIA_QUERY } from "../../layout/const"
 import styled from "styled-components"
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: ${contentMaxWidth};
+  height: 200px;
   width: 100%;
-  height: 62px;
   margin-top: auto;
   position: fixed;
   bottom: 0;
   z-index: -1;
-  background-color: ${({ theme }) => theme.color.gray10};
+  text-align: center;
+  background-color: #161616;
 
   @media ${MOBILE_MEDIA_QUERY} {
     font-size: 13px;
@@ -21,7 +20,10 @@ export const Wrapper = styled.div`
 
 export const Footer = styled.p`
   text-align: center;
+  position: absolute;
+  bottom: 20px;
   width: 100%;
+  color: white;
   max-width: ${contentMaxWidth};
 `
 
