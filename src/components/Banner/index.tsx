@@ -2,7 +2,7 @@ import React from "react"
 
 const Banner = ({ siteTitle }: any) => {
   return (
-    <div className="w-full pt-24 bg-slate-100 pb-12 px-8">
+    <div className="w-full pt-24 bg-slate-50 pb-12 px-8">
       <h1 className="text-4xl font-extrabold mb-3">{siteTitle}</h1>
 
       <div className="flex flex-col gap-y-3">

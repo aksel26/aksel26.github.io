@@ -18,7 +18,7 @@ const CategoryTabs = ({ setCategory, category, move }: any) => {
       <li
         className={`inline-block px-4 py-3 rounded-sm w-full cursor-pointer transition ease-in-out ${
           category === 1
-            ? "text-gray-800 font-black"
+            ? "text-[#161616] font-black"
             : "hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white text-gray-300"
         }`}
         onClick={() => selectCategory(1)}
@@ -30,7 +30,7 @@ const CategoryTabs = ({ setCategory, category, move }: any) => {
         onClick={() => selectCategory(2)}
         className={`inline-block px-4 py-3 rounded-sm w-full cursor-pointer transition ease-in-out ${
           category === 2
-            ? "text-gray-800 font-black"
+            ? "text-[#161616] font-black"
             : "hover:text-gray-900  dark:hover:bg-gray-800 dark:hover:text-white text-gray-300"
         }`}
       >

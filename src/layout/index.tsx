@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import * as S from "./styled"
 import { ThemeProvider } from "styled-components"
 // import { theme } from "../styles/theme"
@@ -7,6 +7,7 @@ import GlobalStyle from "../styles/GlobalStyle"
 import { theme } from "../styles/theme"
 import ScrollToTopButton from "components/ScrollToTop"
 // import { theme } from "@/styles/theme"
+import { motion, useScroll, useTransform } from "framer-motion"
 
 type LayoutProps = {
   children: React.ReactNode
