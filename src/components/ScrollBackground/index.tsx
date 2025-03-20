@@ -7,7 +7,6 @@ const ScrollBackground = ({ children }: any) => {
 
   useEffect(() => {
     return scrollY.onChange(latest => {
-      console.log("latest: ", latest)
       // 배경색 변경을 위한 스크롤 위치 설정
       if (latest < 600) {
         setBackgroundColor("#ffffff") // 시작 배경색 (흰색)

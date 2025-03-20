@@ -10,6 +10,7 @@ import MasonryLayout from "components/MasonryLayout"
 const SCROLL_OFFSET = 150
 
 const MainCardWrapper: React.FC = ({ posts }: any) => {
+  console.log("🚀 ~ posts:", posts)
   const [category, setCategory] = useState(1)
 
   const lifeLogRef = useIntersectionObserver({
@@ -53,7 +54,7 @@ const MainCardWrapper: React.FC = ({ posts }: any) => {
       />
       <DevContainer posts={devPosts} />
       <hr className="w-full h-1 mx-auto my-32 bg-gray-100 border-0 rounded-sm md:my-64 dark:bg-gray-700" />
-      <MasonryLayout ref={lifeLogRef} />
+      <MasonryLayout ref={lifeLogRef} posts={lifeLogPosts} />
       {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-8 md:px-0">
         <div className="bg-white overflow-hidden">
           <div className="h-48 sm:h-auto md:h-50 lg:h-72 max-h-96 w-full">

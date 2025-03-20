@@ -2,7 +2,6 @@ import React from "react"
 import * as S from "../../styles/card"
 import { Badge } from "components/ui/badge"
 const CardComponent = ({ details }: any) => {
-  console.log("🚀 ~ CardComponent ~ details:", details)
   return (
     <S.CardWrapper>
       <div className="flex flex-col gap-y-2">
