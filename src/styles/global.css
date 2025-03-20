@@ -71,3 +71,8 @@
 .gatsby-highlight {
   font-size: 13px;
 }
+
+section {
+  /* 스크롤 시 섹션의 시작 부분에 스냅되도록 설정 */
+  scroll-snap-align: start;
+}
