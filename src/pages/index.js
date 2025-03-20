@@ -53,9 +53,11 @@ export const pageQuery = graphql`
             tags
             summary
             mainCategory
+            location
             thumbnail {
+              publicURL
               childImageSharp {
-                gatsbyImageData(width: 1000, height: 700, layout: CONSTRAINED)
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }
