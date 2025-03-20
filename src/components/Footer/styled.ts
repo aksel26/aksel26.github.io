@@ -1,9 +1,13 @@
-import { contentMaxWidth, MOBILE_MEDIA_QUERY } from "../../layout/const"
+import {
+  contentMaxWidth,
+  FOOTER_HEIGHT,
+  MOBILE_MEDIA_QUERY,
+} from "../../layout/const"
 import styled from "styled-components"
 
 export const Wrapper = styled.div`
   max-width: ${contentMaxWidth};
-  height: 200px;
+  height: ${FOOTER_HEIGHT}px;
   width: 100%;
   margin-top: auto;
   position: fixed;

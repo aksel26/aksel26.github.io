@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { contentMaxWidth, MOBILE_MEDIA_QUERY } from "./const"
+import { contentMaxWidth, FOOTER_HEIGHT, MOBILE_MEDIA_QUERY } from "./const"
 
 export const Wrapper = styled.div`
   overflow-y: scroll;
@@ -40,6 +40,7 @@ export const Content = styled.main`
   position: relative;
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 200px;
+
+  padding-bottom: ${FOOTER_HEIGHT}px;
   max-width: ${contentMaxWidth};
 `
