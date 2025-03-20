@@ -8,7 +8,7 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.js`)
+// const blogPost = path.resolve(`./src/templates/dev-post-template.js`)
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -28,6 +28,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             frontmatter {
               title
+              mainCategory
             }
           }
         }
@@ -55,9 +56,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // })
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    let template
+    if (node.frontmatter.mainCategory === "Dev") {
+      template = path.resolve(`./src/templates/dev-post-template.js`)
+    } else if (node.frontmatter.mainCategory === "LifeLog") {
+      template = path.resolve(`./src/templates/lifeLog-post-template.js`)
+    }
     createPage({
       path: node.fields.slug,
-      component: blogPost,
+      component: template,
       context: {
         slug: node.fields.slug,
       },
