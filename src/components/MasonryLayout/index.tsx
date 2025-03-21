@@ -153,8 +153,11 @@ const MasonryLayout = forwardRef<HTMLDivElement, MasonryLayoutProps>(
     }
 
     return (
-      <section ref={ref} className="container mx-auto md:px-0  px-8 ">
-        <motion.h1
+      <section
+        ref={ref}
+        className="container max-w-[1024px] mx-auto md:px-0 px-8 pt-12"
+      >
+        {/* <motion.h1
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 1 }}
@@ -162,7 +165,7 @@ const MasonryLayout = forwardRef<HTMLDivElement, MasonryLayoutProps>(
           className="text-4xl font-black mb-6 tracking-wider"
         >
           LifeLog
-        </motion.h1>
+        </motion.h1> */}
 
         <div className="flex flex-col sm:flex-row">
           {getColumnImages().map((column: any, columnIndex: number) => (
@@ -237,7 +240,7 @@ const MasonryItem = ({ image, columnIndex, imageIndex }: any) => {
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
       variants={itemVariants}
-      className="bg-white rounded-sm overflow-hidden mb-8 group cursor-pointer"
+      className="rounded-sm overflow-hidden mb-8 group cursor-pointer"
     >
       <div
         className="w-full rounded-sm"
@@ -273,7 +276,7 @@ const MasonryItem = ({ image, columnIndex, imageIndex }: any) => {
           />
         )}
       </div>
-      <div className="pt-">
+      <div className="text-white">
         <h3 className="md:text-sm text-base text-right">
           {image.node.frontmatter.title}
         </h3>

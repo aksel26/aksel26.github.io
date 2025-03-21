@@ -6,7 +6,7 @@ import DevContainer from "components/MainCard/dev"
 import useIntersectionObserver from "../../hooks/useIntersectionObserver"
 import CategoryTabs from "../CategoryTabs"
 import MasonryLayout from "components/MasonryLayout"
-
+import { motion } from "framer-motion"
 const SCROLL_OFFSET = 150
 
 const MainCardWrapper: React.FC = ({ posts }: any) => {
@@ -46,15 +46,62 @@ const MainCardWrapper: React.FC = ({ posts }: any) => {
   }, [posts])
 
   return (
-    <div className="relative bg-white">
-      <CategoryTabs
+    <div>
+      {/* <CategoryTabs
         setCategory={setCategory}
         move={scrollToLifeLog}
         category={category}
-      />
-      <DevContainer posts={devPosts} />
-      <hr className="w-full h-1 mx-auto my-32 bg-gray-100 border-0 rounded-sm md:my-64 dark:bg-gray-700" />
-      <MasonryLayout ref={lifeLogRef} posts={lifeLogPosts} />
+      /> */}
+      <div className="relative text-white mt-48">
+        <div className="absolute bottom-0 left-0 right-0 h-[0.5px]">
+          <motion.div
+            className="h-full bg-gray-100 dark:bg-gray-700"
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
+        </div>
+        <motion.p
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute left-12 -top-8 font-black"
+        >
+          HM-Blog
+        </motion.p>
+        <ul className="flex gap-x-24 absolute left-1/2 -top-8 font-black cursor-pointer">
+          <motion.li
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
+            whileHover={{
+              x: -5,
+              transition: {
+                duration: 0.2,
+                delay: 0,
+                exit: { duration: 0.4, delay: 0 },
+              },
+            }}
+            onClick={() => setCategory(1)}
+          >
+            Dev
+          </motion.li>
+          <motion.li
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1.3 }}
+            whileHover={{ x: -5 }}
+            onClick={() => setCategory(2)}
+          >
+            LifeLog
+          </motion.li>
+        </ul>
+      </div>
+      {category === 1 ? (
+        <DevContainer posts={devPosts} />
+      ) : (
+        <MasonryLayout ref={lifeLogRef} posts={lifeLogPosts} />
+      )}
       {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-8 md:px-0">
         <div className="bg-white overflow-hidden">
           <div className="h-48 sm:h-auto md:h-50 lg:h-72 max-h-96 w-full">

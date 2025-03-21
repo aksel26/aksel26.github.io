@@ -14,7 +14,7 @@ const CategoryTabs = ({ setCategory, category, move }: any) => {
   }
 
   return (
-    <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 px-8 flex-nowrap py-2 md:py-6 sticky top-12 z-20 bg-white ">
+    <ul className="flex flex-wrap text-sm font-medium text-center text-white dark:text-gray-400 px-8 flex-nowrap py-2 md:py-6 sticky top-12 z-20 ">
       <li
         className={`inline-block px-4 py-3 rounded-sm w-full cursor-pointer transition ease-in-out ${
           category === 1

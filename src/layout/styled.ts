@@ -22,6 +22,7 @@ export const ContentWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   word-break: keep-all;
+  background-color: #161616;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // padding-top: 60px;
@@ -40,7 +41,8 @@ export const Content = styled.main`
   position: relative;
   width: 100%;
   margin: 0 auto;
+  background-color: #161616;
 
-  padding-bottom: ${FOOTER_HEIGHT}px;
-  max-width: ${contentMaxWidth};
+  // padding-bottom: ${FOOTER_HEIGHT}px;
+  // max-width: ${contentMaxWidth};
 `

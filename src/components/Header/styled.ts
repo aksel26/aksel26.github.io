@@ -14,7 +14,9 @@ export const Wrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${({ theme }) => theme.color.white100};
+
+  // background-color: ${({ theme }) => theme.color.white100};
+  // background-color: #161616;
   z-index: 20;
 
   @media ${MOBILE_MEDIA_QUERY} {
@@ -25,9 +27,11 @@ export const Wrapper = styled.div`
 export const Header = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
-  max-width: ${contentMaxWidth};
+  // max-width: ${contentMaxWidth};
+  padding: 0 20px;
+  color: white;
 
   .mobile-logo {
     @media ${MOBILE_MEDIA_QUERY} {

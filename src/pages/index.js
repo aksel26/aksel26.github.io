@@ -17,9 +17,9 @@ const Main = ({ data }) => {
 
   return (
     <Layout>
-      <Banner siteTitle={siteTitle} />
+      {/* <Banner siteTitle={siteTitle} /> */}
       <MainCardWrapper posts={posts} />
-      <Footer />
+      {/* <Footer /> */}
     </Layout>
   )
 }
