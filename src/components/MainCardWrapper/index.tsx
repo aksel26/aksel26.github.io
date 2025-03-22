@@ -7,15 +7,13 @@ const MainCardWrapper: React.FC = ({ posts, siteTitle }: any) => {
   const [devPosts, setDevPosts] = useState([])
   const [lifeLogPosts, setLifeLogPosts] = useState([])
 
-  const [currentCategory, setCurrentCategory] = useState(
-    Number(sessionStorage.getItem("current")) || 1
-  )
+  const [currentCategory, setCurrentCategory] = useState(1)
   console.log("currentCategory: ", currentCategory)
 
   const selectCategory = (value: number) => {
     setCurrentCategory(value)
 
-    sessionStorage.setItem("current", value.toString())
+    // sessionStorage.setItem("current", value.toString())
   }
 
   useEffect(() => {
