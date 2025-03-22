@@ -85,7 +85,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
               </ul>
             </nav>
           </div>
-          <section className="flex-1 flex md:flex-row flex-col gap-y-8 md:gap-x-3">
+          <section className="flex-1 flex md:flex-row flex-wrap flex-col gap-4">
             {images.map((image, index) => {
               console.log(image)
               return !image.childImageSharp ? (
@@ -103,8 +103,8 @@ export default function BlogPostTemplate({ data, pageContext }) {
                   image={image.childImageSharp.gatsbyImageData}
                   alt={"image"}
                   key={index}
-                  objectFit="scale-down"
-                  class="w-7/12"
+                  objectFit="contain"
+                  class="md:max-w-[30%]"
                 />
               )
             })}
@@ -140,9 +140,8 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(
               layout: CONSTRAINED
-              width: 1024 # 최대 너비
-              height: 2000 # 최대 높이
               placeholder: BLURRED
+              aspectRatio: 0.75 # 모바일 세로 3:4 비율
               formats: [AUTO, WEBP]
             )
           }
@@ -150,9 +149,7 @@ export const query = graphql`
         thumbnail {
           childImageSharp {
             gatsbyImageData(
-              width: 200
-              height: 250
-
+              layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )
