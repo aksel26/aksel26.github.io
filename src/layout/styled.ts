@@ -35,14 +35,15 @@ export const ContentWrapper = styled.div`
   // }
 `
 
-export const Content = styled.main`
+export const Content = styled.main<{ category: string }>`
   display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
   margin: 0 auto;
-  background-color: #161616;
+  background-color: ${({ category }) =>
+    category === "Dev" ? "white" : "#161616"};
 
-  // padding-bottom: ${FOOTER_HEIGHT}px;
+  padding-bottom: ${FOOTER_HEIGHT}px;
   // max-width: ${contentMaxWidth};
 `
