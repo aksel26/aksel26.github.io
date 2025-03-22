@@ -17,9 +17,8 @@ const Main = ({ data }) => {
 
   return (
     <Layout>
-      {/* <Banner siteTitle={siteTitle} /> */}
-      <MainCardWrapper posts={posts} />
-      {/* <Footer /> */}
+      <MainCardWrapper posts={posts} siteTitle={siteTitle} />
+      <Footer />
     </Layout>
   )
 }
