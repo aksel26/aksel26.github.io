@@ -17,8 +17,8 @@ const Posts = ({ data }: any) => {
   ]
   return (
     <Layout>
-      <div className="pt-20 ">
-        <h1 className="text-4xl font-bold py-5 tracking-wider px-8">
+      <div className="pt-20 text-white">
+        <h1 className="text-xl font-semibold py-5 tracking-wider px-8">
           Posts.{tabs[activeTab].label}
         </h1>
         <div className="flex  transition-all duration-200 py-4 px-8">
@@ -38,32 +38,8 @@ const Posts = ({ data }: any) => {
             ))}
           </div>
         </div>
-        {/* <div className="flex gap-4  flex-wrap mb-4 justify-center md:justify-start">
-        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
-          All
-        </p>
-        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
-          웹 개발
-        </p>
-        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
-          코딩 팁과 트릭
-        </p>
-        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
-          프로젝트 회고
-        </p>
-        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
-          CS
-        </p>
-        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
-          기술 소개
-        </p>
-        <p className=" text-sm md:text-md py-1 px-4 border border-slate-200 text-slate-600 w-32 text-center">
-          프로그래밍 언어
-        </p>
-      </div> */}
-        {/* <ScrollArea className="h-[calc(100vh-250px)] w-full"> */}
         <CardWrapper>
-          <ul className="flex flex-col gap-y-8 flex-1">
+          <ul className="flex gap-10 md:gap-4 flex-wrap">
             {posts.map(
               ({
                 node: {
@@ -76,18 +52,8 @@ const Posts = ({ data }: any) => {
                 </Link>
               )
             )}
-            {/* <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent /> */}
           </ul>
         </CardWrapper>
-        {/* </ScrollArea> */}
       </div>
     </Layout>
   )
@@ -117,7 +83,7 @@ export const pageQuery = graphql`
             mainCategory
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 1000, height: 700, layout: CONSTRAINED)
+                gatsbyImageData(aspectRatio: 1.5, layout: CONSTRAINED)
               }
             }
           }
