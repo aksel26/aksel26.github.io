@@ -5,23 +5,18 @@ slug: "pwa-css"
 mainCategory: "LifeLog"
 tags: ["맛집", "용산구"]
 thumbnail: "./thumbnail-food.jpg"
+images: ["./thumbnail-food.jpg","./content-1.jpg"]
 location: "용산구"
 ---
 
 
 
-<div style="text-align: center;">
+<div >
 서울특별시 용산구 한강대로21길 17-7 1층
 </div>
 
-<div style="text-align: center;">
+<div >
 11:30 ~ 23:00 (주말 13:00 ~ )
 </div>
 
-
-
-
-<div style="text-align: center;">
-<img src="./content-1.jpg" alt="대체 텍스트" style="width:200; height:200;"/>
-</div>
 

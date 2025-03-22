@@ -1,38 +1,22 @@
 import React, { useCallback, useEffect, useState } from "react"
-// import LifeLogContainer from "../MainCard/daily"
-// import DevContainer from "../MainCard/dev"
-import LifeLogContainer from "components/MainCard/daily"
 import DevContainer from "components/MainCard/dev"
-import useIntersectionObserver from "../../hooks/useIntersectionObserver"
-import CategoryTabs from "../CategoryTabs"
-import MasonryLayout from "components/MasonryLayout"
+import MasonryLayout from "components/MainCard/lifeLog"
+import Banner from "components/Banner"
 
-const SCROLL_OFFSET = 150
-
-const MainCardWrapper: React.FC = ({ posts }: any) => {
-  console.log("🚀 ~ posts:", posts)
-  const [category, setCategory] = useState(1)
-
-  const lifeLogRef = useIntersectionObserver({
-    threshold: 0.1,
-    debounceDelay: 100,
-    onVisibilityChange: isVisible => setCategory(isVisible ? 2 : 1),
-  })
-
-  const scrollToLifeLog = useCallback(() => {
-    const currentRef = lifeLogRef.current
-    if (currentRef) {
-      const elementPosition =
-        currentRef.getBoundingClientRect().top + window.scrollY
-      window.scrollTo({
-        top: elementPosition - SCROLL_OFFSET,
-        behavior: "smooth",
-      })
-    }
-  }, [lifeLogRef])
-
+const MainCardWrapper: React.FC = ({ posts, siteTitle }: any) => {
   const [devPosts, setDevPosts] = useState([])
   const [lifeLogPosts, setLifeLogPosts] = useState([])
+
+  const [currentCategory, setCurrentCategory] = useState(
+    Number(sessionStorage.getItem("current")) || 1
+  )
+  console.log("currentCategory: ", currentCategory)
+
+  const selectCategory = (value: number) => {
+    setCurrentCategory(value)
+
+    sessionStorage.setItem("current", value.toString())
+  }
 
   useEffect(() => {
     setDevPosts(
@@ -46,121 +30,17 @@ const MainCardWrapper: React.FC = ({ posts }: any) => {
   }, [posts])
 
   return (
-    <div className="relative bg-white">
-      <CategoryTabs
-        setCategory={setCategory}
-        move={scrollToLifeLog}
-        category={category}
+    <div>
+      <Banner
+        selectCategory={selectCategory}
+        currentCategory={currentCategory}
+        siteTitle={siteTitle}
       />
-      <DevContainer posts={devPosts} />
-      <hr className="w-full h-1 mx-auto my-32 bg-gray-100 border-0 rounded-sm md:my-64 dark:bg-gray-700" />
-      <MasonryLayout ref={lifeLogRef} posts={lifeLogPosts} />
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-8 md:px-0">
-        <div className="bg-white overflow-hidden">
-          <div className="h-48 sm:h-auto md:h-50 lg:h-72 max-h-96 w-full">
-            <img
-              src="https://picsum.photos/400/300"
-              alt="Image 1"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="pt-0">
-            <h3 className="text-right text-sm">이미지 제목 1</h3>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden">
-          <div className="h-48 sm:h-64 md:h-72 lg:h-80 max-h-96 w-full">
-            <img
-              src="https://picsum.photos/400/350"
-              alt="Image 2"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="pt-0">
-            <h3 className="text-right text-sm">이미지 제목 1</h3>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden">
-          <div className="h-48 sm:h-64 md:h-72 lg:h-80 max-h-96 w-full">
-            <img
-              src="https://picsum.photos/400/320"
-              alt="Image 3"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="pt-0">
-            <h3 className="text-right text-sm">이미지 제목 1</h3>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden">
-          <div className="h-48 sm:h-64 md:h-72 lg:h-80 max-h-96 w-full">
-            <img
-              src="https://picsum.photos/400/380"
-              alt="Image 4"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="pt-0">
-            <h3 className="text-right text-sm">이미지 제목 1</h3>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden">
-          <div className="h-48 sm:h-64 md:h-72 lg:h-80 max-h-96 w-full">
-            <img
-              src="https://picsum.photos/400/340"
-              alt="Image 5"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="pt-0">
-            <h3 className="text-right text-sm">이미지 제목 1</h3>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden">
-          <div className="h-48 sm:h-64 md:h-72 lg:h-80 max-h-96 w-full">
-            <img
-              src="https://picsum.photos/400/360"
-              alt="Image 6"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="pt-0">
-            <h3 className="text-right text-sm">이미지 제목 1</h3>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden">
-          <div className="h-48 sm:h-64 md:h-72 lg:h-80 max-h-96 w-full">
-            <img
-              src="https://picsum.photos/400/330"
-              alt="Image 7"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="pt-0">
-            <h3 className="text-right text-sm">이미지 제목 1</h3>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden">
-          <div className="h-48 sm:h-64 md:h-72 lg:h-80 max-h-96 w-full">
-            <img
-              src="https://picsum.photos/400/370"
-              alt="Image 8"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="pt-0">
-            <h3 className="text-right text-sm">이미지 제목 1</h3>
-          </div>
-        </div>
-      </div> */}
-      {/* <LifeLogContainer ref={lifeLogRef} /> */}
+      {currentCategory === 1 ? (
+        <DevContainer posts={devPosts} />
+      ) : (
+        <MasonryLayout posts={lifeLogPosts} />
+      )}
     </div>
   )
 }

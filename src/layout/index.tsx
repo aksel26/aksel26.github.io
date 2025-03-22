@@ -13,17 +13,15 @@ type LayoutProps = {
   children: React.ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }: any) => {
+const Layout: React.FC<LayoutProps> = ({ children, category }: any) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      {/* <S.Wrapper> */}
       <S.ContentWrapper>
         <ScrollToTopButton />
         <Header />
-        <S.Content>{children}</S.Content>
+        <S.Content category={category}>{children}</S.Content>
       </S.ContentWrapper>
-      {/* </S.Wrapper> */}
     </ThemeProvider>
   )
 }

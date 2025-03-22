@@ -11,98 +11,6 @@ const MasonryLayout = forwardRef<HTMLDivElement, MasonryLayoutProps>(
     const { posts } = props
     console.log("🚀 ~ 😵‍💫posts:", posts)
     // 이미지 데이터 배열 (다양한 높이를 가진 이미지)
-    const images = [
-      {
-        id: 1,
-        src: "https://picsum.photos/400/300",
-        title: "로로로",
-        height: 300,
-      },
-      {
-        id: 2,
-        src: "https://picsum.photos/400/420",
-        title: "이미지 제목 2",
-        height: 420,
-      },
-      {
-        id: 3,
-        src: "https://picsum.photos/400/250",
-        title: "이미지 제목 3",
-        height: 250,
-      },
-      {
-        id: 4,
-        src: "https://picsum.photos/400/380",
-        title: "이미지 제목 4",
-        height: 380,
-      },
-      {
-        id: 5,
-        src: "https://picsum.photos/400/280",
-        title: "이미지 제목 5",
-        height: 280,
-      },
-      {
-        id: 6,
-        src: "https://picsum.photos/400/340",
-        title: "이미지 제목 6",
-        height: 340,
-      },
-      {
-        id: 7,
-        src: "https://picsum.photos/400/220",
-        title: "이미지 제목 7",
-        height: 220,
-      },
-      {
-        id: 8,
-        src: "https://picsum.photos/400/320",
-        title: "이미지 제목 8",
-        height: 320,
-      },
-      {
-        id: 9,
-        src: "https://picsum.photos/400/270",
-        title: "이미지 제목 9",
-        height: 270,
-      },
-      {
-        id: 10,
-        src: "https://picsum.photos/400/350",
-        title: "이미지 제목 10",
-        height: 350,
-      },
-      {
-        id: 11,
-        src: "https://picsum.photos/400/230",
-        title: "이미지 제목 11",
-        height: 230,
-      },
-      {
-        id: 12,
-        src: "https://picsum.photos/400/400",
-        title: "이미지 제목 12",
-        height: 400,
-      },
-      {
-        id: 13,
-        src: "https://picsum.photos/400/400",
-        title: "이미지 제목 12",
-        height: 400,
-      },
-      {
-        id: 14,
-        src: "https://picsum.photos/400/400",
-        title: "이미지 제목 12",
-        height: 400,
-      },
-      {
-        id: 15,
-        src: "https://picsum.photos/400/400",
-        title: "이미지 제목 12",
-        height: 400,
-      },
-    ]
 
     // 윈도우 크기에 따라 열 수 결정
     useEffect(() => {
@@ -153,8 +61,11 @@ const MasonryLayout = forwardRef<HTMLDivElement, MasonryLayoutProps>(
     }
 
     return (
-      <section ref={ref} className="container mx-auto md:px-0  px-8 ">
-        <motion.h1
+      <section
+        ref={ref}
+        className="container max-w-[1024px] mx-auto md:px-0 px-8 pt-12"
+      >
+        {/* <motion.h1
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 1 }}
@@ -162,7 +73,7 @@ const MasonryLayout = forwardRef<HTMLDivElement, MasonryLayoutProps>(
           className="text-4xl font-black mb-6 tracking-wider"
         >
           LifeLog
-        </motion.h1>
+        </motion.h1> */}
 
         <div className="flex flex-col sm:flex-row">
           {getColumnImages().map((column: any, columnIndex: number) => (
@@ -193,7 +104,6 @@ const MasonryLayout = forwardRef<HTMLDivElement, MasonryLayoutProps>(
 
 // 개별 Masonry 아이템 컴포넌트
 const MasonryItem = ({ image, columnIndex, imageIndex }: any) => {
-  console.log("🚀 ~ MasonryItem ~ image:", image)
   const [isVisible, setIsVisible] = useState(false)
   const [ref, setRef] = useState<any>(null)
 
@@ -237,7 +147,7 @@ const MasonryItem = ({ image, columnIndex, imageIndex }: any) => {
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
       variants={itemVariants}
-      className="bg-white rounded-sm overflow-hidden mb-8 group cursor-pointer"
+      className="rounded-sm overflow-hidden mb-8 group cursor-pointer"
     >
       <div
         className="w-full rounded-sm"
@@ -273,7 +183,7 @@ const MasonryItem = ({ image, columnIndex, imageIndex }: any) => {
           />
         )}
       </div>
-      <div className="pt-">
+      <div className="text-white">
         <h3 className="md:text-sm text-base text-right">
           {image.node.frontmatter.title}
         </h3>

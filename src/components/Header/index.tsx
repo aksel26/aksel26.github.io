@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <S.Wrapper>
       <S.Header>
-        <div className="md:mr-5 mr-3">
+        {/* <div className="md:mr-5 mr-3">
           <Link to="/">
             <StaticImage
               src="../../images/gatsby-icon.png"
@@ -23,7 +23,7 @@ const Header = () => {
               className="h-[34px] w-[34px]"
             />
           </Link>
-        </div>
+        </div> */}
         <div className="flex gap-x-8 items-center">
           <Link className="text-sm" to="/posts">
             Posts
