@@ -21,9 +21,13 @@ const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
       </motion.p>
       <ul className="flex gap-x-24 absolute left-1/2 -top-8 font-black cursor-pointer">
         <motion.li
+          viewport={{ once: true }} // 한 번만 애니메이션 실행
           initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.8, duration: 0.8 },
+          }}
           whileHover={{
             x: -5,
             transition: {
@@ -32,22 +36,29 @@ const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
               exit: { duration: 0.4, delay: 0 },
             },
           }}
-          className={`${
-            currentCategory === 1 ? "text-red-400" : "text-white"
-          } `}
+          className={`${currentCategory === 1 ? "current" : "text-white"} `}
           onClick={() => selectCategory(1)}
         >
           Dev
         </motion.li>
         <motion.li
+          viewport={{ once: true }} // 한 번만 애니메이션 실행
           initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 1.3 }}
-          whileHover={{ x: -5 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 1.3, duration: 0.8 },
+          }}
+          whileHover={{
+            x: -5,
+            transition: {
+              duration: 0.2,
+              delay: 0,
+              exit: { duration: 0.4, delay: 0 },
+            },
+          }}
           onClick={() => selectCategory(2)}
-          className={`${
-            currentCategory === 2 ? "text-red-400" : "text-white"
-          } `}
+          className={`${currentCategory === 2 ? "current" : "text-white"} `}
         >
           LifeLog
         </motion.li>
