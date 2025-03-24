@@ -91,6 +91,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
                 <video
                   autoPlay
                   muted
+                  playsInline
                   loop
                   className="max-h-[600px] object-cover w-full"
                 >
