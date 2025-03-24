@@ -12,7 +12,6 @@ import {
   CardTitle,
 } from "components/ui/card"
 export default function BlogPostTemplate({ data, pageContext }) {
-  console.log("🚀 ~ BlogPostTemplate ~ data:", data)
   const post = data.markdownRemark
   const tags = data.markdownRemark.frontmatter.tags
   const images = data.markdownRemark.frontmatter.images

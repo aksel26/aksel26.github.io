@@ -165,6 +165,7 @@ const MasonryItem = ({ image, columnIndex, imageIndex }: any) => {
             autoPlay
             muted
             loop
+            playsInline
             className="w-full h-full object-cover rounded-sm transition-all duration-300 ease-in-out group-hover:scale-110"
           >
             <source
