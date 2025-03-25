@@ -28,7 +28,7 @@ const MainCardWrapper: React.FC = ({ posts, siteTitle }: any) => {
   }, [posts])
 
   return (
-    <div>
+    <div className="relative z-50">
       <Banner
         selectCategory={selectCategory}
         currentCategory={currentCategory}

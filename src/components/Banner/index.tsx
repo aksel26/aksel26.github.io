@@ -15,6 +15,7 @@ const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }} // 한 번만 애니메이션 실행
         className="absolute left-12 -top-8 font-black"
       >
         {siteTitle}

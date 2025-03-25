@@ -15,7 +15,7 @@ const DevContainer = ({ posts }: any) => {
               whileInView={{
                 opacity: 1,
                 y: 0,
-                transition: { delay: index * 0.5, duration: 0.3 },
+                transition: { delay: index * 0.2, duration: 0.3 },
               }}
               viewport={{ once: true }} // 한 번만 애니메이션 실행
               whileHover={{
