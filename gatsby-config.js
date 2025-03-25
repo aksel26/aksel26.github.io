@@ -21,6 +21,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-svgr`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
