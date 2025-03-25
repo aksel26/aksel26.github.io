@@ -44,29 +44,43 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  // result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-  //   const slug =
-  //     node.frontmatter.slug ||
-  //     createFilePath({ node, getNode, basePath: `content` })
-  //   createPage({
-  //     path: `/${slug}`,
-  //     component: blogPost,
-  //     relativeDirectory: node.parent.relativeDirectory,
-  //   })
-  // })
+  const posts = result.data.allMarkdownRemark.edges
+  posts.forEach((post, index) => {
+    // 현재 포스트의 카테고리
+    const currentCategory = post.node.frontmatter.mainCategory
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    // 같은 카테고리의 포스트만 필터링
+    const categoryPosts = posts.filter(
+      p => p.node.frontmatter.mainCategory === currentCategory
+    )
+
+    // 현재 카테고리 포스트 내에서의 인덱스 찾기
+    const categoryIndex = categoryPosts.findIndex(
+      p => p.node.fields.slug === post.node.fields.slug
+    )
+
+    // 같은 카테고리 내 이전/다음 포스트 찾기
+    const previous =
+      categoryIndex === 0 ? null : categoryPosts[categoryIndex - 1].node
+    const next =
+      categoryIndex === categoryPosts.length - 1
+        ? null
+        : categoryPosts[categoryIndex + 1].node
+
     let template
-    if (node.frontmatter.mainCategory === "Dev") {
+    if (currentCategory === "Dev") {
       template = path.resolve(`./src/templates/dev-post-template.js`)
-    } else if (node.frontmatter.mainCategory === "LifeLog") {
+    } else if (currentCategory === "LifeLog") {
       template = path.resolve(`./src/templates/lifeLog-post-template.js`)
     }
+
     createPage({
-      path: node.fields.slug,
+      path: post.node.fields.slug,
       component: template,
       context: {
-        slug: node.fields.slug,
+        slug: post.node.fields.slug,
+        previous,
+        next,
       },
     })
   })
