@@ -3,6 +3,7 @@ import * as React from "react"
 
 import Banner from "../components/Banner"
 import MainCardWrapper from "components/MainCardWrapper"
+import FadingVideo from "components/FadingVideo"
 import Footer from "../components/Footer"
 import Seo from "../components/seo"
 import Layout from "../layout"
@@ -17,6 +18,7 @@ const Main = ({ data }) => {
 
   return (
     <Layout>
+      <FadingVideo />
       <MainCardWrapper posts={posts} siteTitle={siteTitle} />
       <Footer />
     </Layout>
