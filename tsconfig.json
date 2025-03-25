@@ -18,6 +18,9 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.tsx"],
+  "include": [
+    "src/**/*.tsx",
+    "src/types/*.d.ts" // 이 줄 추가
+  ],
   "exclude": ["node_modules"]
 }
