@@ -22,19 +22,19 @@ export default function BlogPostTemplate({ data, pageContext }) {
   return (
     <Layout>
       <header className="pt-[60px] pb-8 px-8 text-center">
-        <p className="h-36 text-7xl tracking-widest text-white font-black">
+        <p className="md:text-9xl text-7xl  text-white font-semibold">
           LifeLog
         </p>
       </header>
 
       <article className="leading-relaxed px-8 mb-24 relative">
-        <div className="flex relative gap-8">
+        <div className="flex flex-col md:flex-row relative gap-8">
           <div
             id="infoBox"
             className="flex flex-col gap-y-4 sticky top-20 h-fit max-h-screen text-white w-1/3"
           >
             <h1 className="text-3xl font-bold">{post.frontmatter.title}</h1>
-            <h3 className="text-base text-gray-100">
+            <h3 className="text-sm md:text-base text-gray-100">
               {post.frontmatter.location}
             </h3>
             <div className="flex gap-x-4 py-6 justify-center w-max">
@@ -43,7 +43,10 @@ export default function BlogPostTemplate({ data, pageContext }) {
               ))}
             </div>
 
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <div
+              className="text-sm md:text-base"
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
             <p className="text-sm text-gray-100 mt-8">
               {post.frontmatter.date}
             </p>

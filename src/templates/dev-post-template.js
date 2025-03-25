@@ -20,7 +20,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
 
   return (
     <Layout category={"Dev"}>
-      <div className="max-w-screen-lg	mx-auto ">
+      <div className="mx-auto w-full ">
         <header className="pt-24 pb-8 px-8">
           <div className="w-full h-1/2 flex justify-center mb-12">
             {thumbnail && (
