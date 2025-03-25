@@ -1,16 +1,10 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../layout"
-// import Layout from "../components/layout"
 import Seo from "components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Badge } from "components/ui/badge"
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "components/ui/card"
+import { Card, CardHeader, CardTitle } from "components/ui/card"
 export default function BlogPostTemplate({ data, pageContext }) {
   const post = data.markdownRemark
   const tags = data.markdownRemark.frontmatter.tags

@@ -11,10 +11,14 @@ import {
   CardHeader,
   CardTitle,
 } from "components/ui/card"
+import { ReactComponent as IconArrowRight } from "../images/chevron-right.svg"
+import { ReactComponent as IconArrowLeft } from "../images/chevron-left.svg"
 export default function BlogPostTemplate({ data, pageContext }) {
+  console.log("🚀 ~ BlogPostTemplate ~ pageContext:", pageContext)
   const post = data.markdownRemark
   const tags = data.markdownRemark.frontmatter.tags
   const thumbnail = getImage(post.frontmatter.thumbnail)
+  const { previous, next } = pageContext
 
   // const post = data.markdownRemark
 
@@ -43,50 +47,43 @@ export default function BlogPostTemplate({ data, pageContext }) {
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
 
-        <nav className="blog-post-nav max-w-[450px] mx-auto">
-          <ul className="flex justify-center gap-x-6">
-            <li className="">
-              {/* {previous && ( */}
-              <Link to={"#"} rel="prev">
-                <Card className="hover:text-sky-500 transition ">
-                  <div className="flex items-center gap-x-3">
-                    <div>←</div>
-                    <CardHeader>
-                      <CardTitle className="text-center line-clamp-1">
-                        Create project
-                      </CardTitle>
-                      <CardDescription className="line-clamp-1">
-                        Deploy your new project in one-click.Deploy your new
-                        project in one-click.Deploy your new project in
-                        one-click.Deploy your new project in one-click.
-                      </CardDescription>
-                    </CardHeader>
-                  </div>
-                </Card>
-              </Link>
-              {/* )} */}
+        <nav className="blog-post-nav mt-12 w-full ">
+          <ul className="flex justify-center gap-6">
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug} rel="prev">
+                  <Card className="hover:text-sky-500 transition bg-transparent border-none p-0">
+                    <div className="flex items-center gap-x-3">
+                      <CardHeader>
+                        <CardTitle className=" line-clamp-1 text-center">
+                          <div className="flex items-center gap-x-2">
+                            <IconArrowLeft />
+                            {previous.frontmatter.title}
+                          </div>
+                        </CardTitle>
+                      </CardHeader>
+                    </div>
+                  </Card>
+                </Link>
+              )}
             </li>
             <li>
-              {/* {next && ( */}
-              <Link to={"#"} rel="next">
-                <Card className="hover:text-sky-500 transition ">
-                  <div className="flex items-center gap-x-3">
-                    <CardHeader>
-                      <CardTitle className="text-center line-clamp-1">
-                        Create projectCreate projectCreate projectCreate
-                        projectCreate project
-                      </CardTitle>
-                      <CardDescription className="line-clamp-1">
-                        Deploy your new project in one-click.Deploy your new
-                        project in one-click.Deploy your new project in
-                        one-click.Deploy your new project in one-click.
-                      </CardDescription>
-                    </CardHeader>
-                    <div>→</div>
-                  </div>
-                </Card>
-              </Link>
-              {/* )} */}
+              {next && (
+                <Link to={next.fields.slug} rel="next">
+                  <Card className="hover:text-sky-500 transition bg-transparent border-none p-0">
+                    <div className="flex items-center gap-x-3 justify-end">
+                      <CardHeader>
+                        <CardTitle className=" line-clamp-1 ">
+                          <div className="flex items-center gap-x-2">
+                            {next.frontmatter.title}
+                            <IconArrowRight />
+                          </div>
+                        </CardTitle>
+                      </CardHeader>
+                    </div>
+                  </Card>
+                </Link>
+              )}
             </li>
           </ul>
         </nav>

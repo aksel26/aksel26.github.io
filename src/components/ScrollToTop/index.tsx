@@ -34,9 +34,9 @@ const ScrollToTopButton = () => {
       variant="ghost"
       size="icon"
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 rounded-none  z-50 transition-all duration-300 ease-in-out bg-black group ${
+      className={`w-[40px] h-[40px] fixed bottom-6 right-6 rounded-none  z-50 transition-all duration-300 ease-in-out hover:bg-transparent group ${
         isVisible
-          ? "opacity-100 translate-y-0"
+          ? "opacity-100 translate-y-0 bg-[#161616] opacity-75"
           : "opacity-0 translate-y-10 pointer-events-none"
       }`}
     >
