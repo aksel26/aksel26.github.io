@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
 
   }
   
+  ::-webkit-scrollbar {
+    display: none;
+  }
+    
   * {
     box-sizing: border-box;
   }
