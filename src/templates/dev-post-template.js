@@ -14,7 +14,6 @@ import {
 import { ReactComponent as IconArrowRight } from "../images/chevron-right.svg"
 import { ReactComponent as IconArrowLeft } from "../images/chevron-left.svg"
 export default function BlogPostTemplate({ data, pageContext }) {
-  console.log("🚀 ~ BlogPostTemplate ~ pageContext:", pageContext)
   const post = data.markdownRemark
   const tags = data.markdownRemark.frontmatter.tags
   const thumbnail = getImage(post.frontmatter.thumbnail)
@@ -24,7 +23,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
 
   return (
     <Layout category={"Dev"}>
-      <div className="mx-auto w-full ">
+      <div className="mx-auto ">
         <header className="pt-24 pb-8 px-8">
           <div className="w-full h-1/2 flex justify-center mb-12">
             {thumbnail && (
@@ -44,7 +43,10 @@ export default function BlogPostTemplate({ data, pageContext }) {
           <p className="text-sm text-gray-500">{post.frontmatter.date}</p>
         </header>
         <article className="leading-relaxed px-8 mb-24">
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section
+            className="prose"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
         </article>
 
         <nav className="blog-post-nav mt-12 w-full ">
