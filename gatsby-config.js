@@ -12,10 +12,10 @@ module.exports = {
     title: `HM-blog`,
     author: {
       name: `김현민`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      summary: `프론트엔드 개발자`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://hmkim.netlify.app/`,
     social: {
       twitter: `kylemathews`,
     },
@@ -50,38 +50,57 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-remark-images",
+      options: {
+        // maxWidth: 768,
+        quality: 100,
+        withWebp: true,
+      },
+    },
+    {
+      resolve: "gatsby-remark-copy-linked-files",
+      options: {},
+    },
+    {
+      resolve: "gatsby-remark-external-links",
+      options: {
+        target: "_blank",
+        rel: "nofollow",
+      },
+    },
+    {
+      resolve: "gatsby-remark-smartypants",
+      options: {
+        dashes: "oldschool",
+      },
+    },
+
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-smartypants",
-            options: {
-              dashes: "oldschool",
-            },
-          },
-          {
             resolve: "gatsby-remark-prismjs",
             options: {
               classPrefix: "language-",
-            },
-          },
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              // maxWidth: 768,
-              quality: 100,
-              withWebp: true,
-            },
-          },
-          {
-            resolve: "gatsby-remark-copy-linked-files",
-            options: {},
-          },
-          {
-            resolve: "gatsby-remark-external-links",
-            options: {
-              target: "_blank",
-              rel: "nofollow",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
+              languageExtensions: [
+                {
+                  language: "superscript",
+                  extend: "javascript",
+                  definition: {
+                    superscript_types: /(SuperType)/,
+                  },
+                  insertBefore: {
+                    function: {
+                      superscript_keywords: /(superif|superelse)/,
+                    },
+                  },
+                },
+              ],
             },
           },
         ],
@@ -147,7 +166,7 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          formats: ["webp"],
+          formats: ["webp", "auto"],
           quality: 100,
           placeholder: "blurred",
         },
