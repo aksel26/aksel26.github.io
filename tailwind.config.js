@@ -55,7 +55,23 @@ module.exports = {
           5: "hsl(var(--chart-5))",
         },
       },
+      typography: theme => ({
+        DEFAULT: {
+          css: {
+            "code::before": { content: "none" }, // prose의 기본 가상 요소 제거
+            "code::after": { content: "none" },
+            pre: {
+              backgroundColor: "transparent", // prose 기본 배경 제거
+              padding: 0,
+            },
+            code: {
+              backgroundColor: "transparent",
+              padding: 0,
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 }
