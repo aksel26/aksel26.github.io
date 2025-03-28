@@ -67,11 +67,9 @@
     @apply bg-background text-foreground;
   }
 }
-
 .gatsby-highlight {
   font-size: 13px;
 }
-
 section {
   /* 스크롤 시 섹션의 시작 부분에 스냅되도록 설정 */
   scroll-snap-align: start;
@@ -92,3 +90,23 @@ section {
   border-radius: 50%;
   transition: all 1s ease;
 }
+
+/* pre[class*="language-"] {
+  background-color: #ffffff; 
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+code[class*="language-"] {
+  font-family: "Fira Code", monospace; 
+} */
+
+/* .gatsby-highlight-code-line {
+  background-color: #feb;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #f99;
+} */
