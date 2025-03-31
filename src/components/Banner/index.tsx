@@ -16,11 +16,11 @@ const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }} // 한 번만 애니메이션 실행
-        className="absolute left-12 -top-8 font-black"
+        className="absolute left-12 -top-8 font-extralight"
       >
         {siteTitle}
       </motion.p>
-      <ul className="flex gap-x-24 absolute left-1/2 -top-8 font-black cursor-pointer">
+      <ul className="flex gap-x-24 absolute left-1/2 -top-8 font-extralight cursor-pointer">
         <motion.li
           viewport={{ once: true }} // 한 번만 애니메이션 실행
           initial={{ opacity: 0, y: -50 }}
@@ -37,7 +37,7 @@ const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
               exit: { duration: 0.4, delay: 0 },
             },
           }}
-          className={`${currentCategory === 1 ? "current" : "text-white"} `}
+          className={`${currentCategory === 1 ? "current" : "text-white"}`}
           onClick={() => selectCategory(1)}
         >
           Dev

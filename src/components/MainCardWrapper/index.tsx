@@ -1,20 +1,14 @@
-import React, { useCallback, useEffect, useState } from "react"
+import Banner from "components/Banner"
 import DevContainer from "components/MainCard/dev"
 import MasonryLayout from "components/MainCard/lifeLog"
-import Banner from "components/Banner"
+import React, { useEffect, useState } from "react"
 
 const MainCardWrapper: React.FC = ({ posts, siteTitle }: any) => {
   const [devPosts, setDevPosts] = useState([])
   const [lifeLogPosts, setLifeLogPosts] = useState([])
-
   const [currentCategory, setCurrentCategory] = useState(1)
-  console.log("currentCategory: ", currentCategory)
 
-  const selectCategory = (value: number) => {
-    setCurrentCategory(value)
-
-    // sessionStorage.setItem("current", value.toString())
-  }
+  const selectCategory = (value: number) => setCurrentCategory(value)
 
   useEffect(() => {
     setDevPosts(
