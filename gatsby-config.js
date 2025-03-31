@@ -57,21 +57,12 @@ module.exports = {
         withWebp: true,
       },
     },
-    {
-      resolve: "gatsby-remark-copy-linked-files",
-      options: {},
-    },
+
     {
       resolve: "gatsby-remark-external-links",
       options: {
         target: "_blank",
         rel: "nofollow",
-      },
-    },
-    {
-      resolve: "gatsby-remark-smartypants",
-      options: {
-        dashes: "oldschool",
       },
     },
 
@@ -101,6 +92,23 @@ module.exports = {
                   },
                 },
               ],
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              backgroundColor: "transparent",
+            },
+          },
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {},
+          },
+          {
+            resolve: "gatsby-remark-smartypants",
+            options: {
+              dashes: "oldschool",
             },
           },
         ],
