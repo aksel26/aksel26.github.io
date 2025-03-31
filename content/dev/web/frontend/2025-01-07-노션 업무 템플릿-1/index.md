@@ -1,6 +1,6 @@
 ---
 title: "노션 업무 템플릿-1"
-date: "2024-06-25"
+date: "2025-01-07"
 slug: "notion"
 mainCategory: "Dev"
 tags: ["Webhook", "Slack","Notion"]
