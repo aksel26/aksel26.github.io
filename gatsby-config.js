@@ -65,7 +65,40 @@ module.exports = {
         rel: "nofollow",
       },
     },
-
+    {
+      resolve: `gatsby-plugin-fusejs`,
+      options: {
+        query: `
+          {
+            allMarkdownRemark {
+              nodes {
+                id
+                frontmatter {
+                  title
+                  slug
+                }
+                fields{
+                  slug
+                }
+                rawMarkdownBody
+              }
+            }
+          }
+        `,
+        keys: ["title"], // 검색 대상 필드
+        fusejs: {
+          threshold: 0.3, // 검색 결과의 유사도 임계값 (0.0 ~ 1.0, 낮을수록 엄격)
+          includeScore: true, // 검색 결과에 유사도 점수 포함
+          minMatchCharLength: 2, // 최소 매칭 문자 길이
+        },
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map(node => ({
+            id: node.id,
+            title: node.frontmatter.title,
+            slug: node.fields.slug, // 슬러그 추가
+          })),
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
