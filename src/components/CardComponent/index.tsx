@@ -10,13 +10,25 @@ const CardComponent = ({ details }: any) => {
   return (
     <S.CardWrapper>
       <div className="flex flex-col gap-y-2 md:max-w-[300px] w-full">
-        {details.thumbnail.childImageSharp ? (
+        {!details.thumbnail.childImageSharp ? (
+          <video
+            // width="100%"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="md:w-[300px] md:h-[200px] h-full rounded-sm transition-all duration-300 ease-in-out group-hover:scale-110"
+          >
+            <source src={details.thumbnail.publicURL} type="video/mp4" />
+            브라우저가 비디오를 지원하지 않습니다.
+          </video>
+        ) : (
           <GatsbyImage
             image={details.thumbnail.childImageSharp.gatsbyImageData}
             alt={details.title}
-            className="w-full rounded-sm transition-all duration-300 ease-in-out group-hover:scale-110"
+            className="w-full h-full object-cover rounded-sm transition-all duration-300 ease-in-out group-hover:scale-110"
           />
-        ) : null}
+        )}
         <div className="flex flex-col gap-y-2">
           <p className="font-semibold text-sm line-clamp-1">{details.title}</p>
           <p className="text-xs text-gray-400 line-clamp-2 ">

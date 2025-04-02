@@ -83,7 +83,7 @@ const Posts = ({ data }: any) => {
             ))}
           </div>
         </div>
-        <CardWrapper>
+        <div className="flex px-8 w-full gap-x-3 h-[calc(100vh-9.5rem)] overflow-auto snap-y snap-mandatory mobile-scroll-snap-container">
           <ul className="flex gap-10 md:gap-4 flex-wrap">
             {result.map(
               ({
@@ -92,13 +92,13 @@ const Posts = ({ data }: any) => {
                   frontmatter,
                 },
               }: any) => (
-                <Link to={slug} key={slug}>
+                <Link to={slug} key={slug} className="mobile-scroll-snap-item">
                   <CardComponent details={frontmatter} />
                 </Link>
               )
             )}
           </ul>
-        </CardWrapper>
+        </div>
       </div>
     </Layout>
   )
@@ -127,6 +127,7 @@ export const pageQuery = graphql`
             summary
             mainCategory
             thumbnail {
+              publicURL
               childImageSharp {
                 gatsbyImageData(aspectRatio: 1.5, layout: CONSTRAINED)
               }

@@ -96,3 +96,15 @@ section {
 code[class*="language-"] {
   font-size: 0.75rem;
 }
+
+@media (max-width: 767px) {
+  .mobile-scroll-snap-container {
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-scroll-snap-item {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+}
