@@ -5,7 +5,7 @@ slug: "pwa-css"
 mainCategory: "LifeLog"
 tags: ["카페", "용산구"]
 thumbnail: "./thumbnail-cafe1.mp4"
-images: ["./2025-02-20-chae-image1.png","./content-cafe1.mp4"]
+images: ["./2025-02-20-chae-image1.webp","./content-cafe1.mp4"]
 location: "용산구"
 ---
 

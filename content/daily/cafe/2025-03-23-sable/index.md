@@ -4,8 +4,8 @@ date: "2024-08-04"
 slug: "Sable"
 mainCategory: "LifeLog"
 tags: ["카페", "송파구"]
-thumbnail: "./content-1.png"
-images: ["./thumbnail.png","./content-1.png","./content-3.png","./content-6.png","./content-4.png","./content-8.png","./content-2.png","./content-7.png","./content-5.png","./content-9.png"]
+thumbnail: "./content-1.webp"
+images: ["./thumbnail.webp","./content-1.webp","./content-3.webp","./content-6.webp","./content-4.webp","./content-8.webp","./content-2.webp","./content-7.webp","./content-5.webp","./content-9.webp"]
 location: "송파구"
 ---
 
@@ -31,6 +31,6 @@ Last Order 21:30
 
 
 
-<!-- <img src="./content-1.png" alt="대체 텍스트" style="width:200; height:200;"/> -->
+<!-- <img src="./content-1.webp" alt="대체 텍스트" style="width:200; height:200;"/> -->
 <!-- </div> -->
 

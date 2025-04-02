@@ -4,8 +4,8 @@ date: "2025-03-21"
 slug: "손문"
 mainCategory: "LifeLog"
 tags: ["맛집", "용산구"]
-thumbnail: "./thumbnail.png"
-images: ["./thumbnail.png","./content-1.png","./content-2.png"]
+thumbnail: "./thumbnail.webp"
+images: ["./thumbnail.webp","./content-1.png","./content-2.webp"]
 location: "용산구"
 ---
 

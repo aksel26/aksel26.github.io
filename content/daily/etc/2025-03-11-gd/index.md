@@ -4,8 +4,8 @@ date: "2025-03-11"
 slug: "gd전시회"
 mainCategory: "LifeLog"
 tags: ["전시회", "여의도"]
-thumbnail: "./thumbnail.webp"
-images: ["./content-4.webp","./content-3.webp","./content-2.webp","./content-1.webp","./content-6.webp","./content-7.webp"]
+thumbnail: "./thumbnail.mp4"
+images: ["./content-4.webp","./content-3.webp","./content-2.webp","./content-1.webp","./thumbnail.mp4","./content-7.webp","./content-8.webp","./content-9.webp"]
 location: "용산구"
 ---
 
