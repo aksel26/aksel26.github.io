@@ -12,7 +12,9 @@ const MainCardWrapper: React.FC = ({ posts, siteTitle }: any) => {
 
   useEffect(() => {
     setDevPosts(
-      posts.filter((post: any) => post.node.frontmatter.mainCategory === "Dev")
+      posts
+        .filter((post: any) => post.node.frontmatter.mainCategory === "Dev")
+        .slice(0, 6)
     )
     setLifeLogPosts(
       posts.filter(
