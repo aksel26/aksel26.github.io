@@ -2,7 +2,7 @@ import React from "react"
 import { motion } from "framer-motion"
 const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
   return (
-    <div className="relative text-white mt-48">
+    <div className="relative text-white md:mt-48 mt-32">
       <div className="absolute bottom-0 left-0 right-0 h-[0.5px]">
         <motion.div
           className="h-full bg-gray-100 dark:bg-gray-700"
@@ -16,11 +16,11 @@ const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }} // 한 번만 애니메이션 실행
-        className="absolute left-12 -top-8 font-extralight"
+        className="absolute left-12 -top-8 font-bold"
       >
         {siteTitle}
       </motion.p>
-      <ul className="flex gap-x-24 absolute left-1/2 -top-8 font-extralight cursor-pointer">
+      <ul className="flex gap-x-24 absolute left-1/2 -top-8 font-bold cursor-pointer">
         <motion.li
           viewport={{ once: true }} // 한 번만 애니메이션 실행
           initial={{ opacity: 0, y: -50 }}
