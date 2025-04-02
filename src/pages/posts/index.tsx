@@ -83,7 +83,7 @@ const Posts = ({ data }: any) => {
             ))}
           </div>
         </div>
-        <div className="flex px-8 w-full gap-x-3 h-[calc(100vh-9.5rem)] overflow-auto snap-y snap-mandatory mobile-scroll-snap-container">
+        <div className="flex px-8 w-full gap-x-3 ">
           <ul className="flex gap-10 md:gap-4 flex-wrap">
             {result.map(
               ({
@@ -92,7 +92,7 @@ const Posts = ({ data }: any) => {
                   frontmatter,
                 },
               }: any) => (
-                <Link to={slug} key={slug} className="mobile-scroll-snap-item">
+                <Link to={slug} key={slug}>
                   <CardComponent details={frontmatter} />
                 </Link>
               )

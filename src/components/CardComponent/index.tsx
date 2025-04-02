@@ -17,7 +17,7 @@ const CardComponent = ({ details }: any) => {
             muted
             loop
             playsInline
-            className="md:w-[300px] md:h-[200px] h-full rounded-sm transition-all duration-300 ease-in-out group-hover:scale-110"
+            className="md:w-[300px] md:h-[200px] w-full h-full rounded-sm transition-all duration-300 ease-in-out group-hover:scale-110"
           >
             <source src={details.thumbnail.publicURL} type="video/mp4" />
             브라우저가 비디오를 지원하지 않습니다.
