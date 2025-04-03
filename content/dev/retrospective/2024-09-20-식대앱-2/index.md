@@ -23,7 +23,7 @@ summary: "식대 작성 앱"
 
 1. 점심조 제비 뽑기
 2. Google 스프레드 시트 연동
-3. FullCalendar로 달력에 식대 입력 표시
+3. FullCalendar로 달력에 식대, 공휴일 표시
 4. HammerJS로 달력 이동 및 식대 내역 삭제
 5. Excel CRUD
 
@@ -70,6 +70,28 @@ ExcelJS 와 xlsx 라이브러리 2개의 선택지가 있었는데,
 ExcelJS는 기존 엑셀 안의 셀 스타일 그대로 데이터 입력, 값 호출이 가능했고,  
 xlsx는 입력하면 기존 셀 스타일이 초기화 되었다. (능숙하지 않아서 그럴 수도 있지만, ExcelJS가 사용하기에 비교적 편리했다.)
 
+
+&nbsp;
+
+
+
+### FullCalendar 커스텀
+
+![달력](./4.png)
+
+1. Excel 근태 입력 상태에 따라 아이콘 표시 
+    - 정상 근무 🍙
+    - 반차 ⏱️
+    - 재택근무 🏠
+    - 휴가 🌴
+
+2. 공휴일 정보 받아오기
+    1. 오픈 API로 해당 월 공휴일 정보 GET ([참고링크](https://www.data.go.kr/data/15012690/openapi.do))
+    2. 해당 월에 공휴일 정보가 입력되어 있는지 확인 (엑셀 원본에 입력된 경우가 있다.)
+        1. 공휴일 갯수와 가져온 공휴일 갯수가 일치하면 아무작업도 하지 않는다.
+        2. 차이가 나면 누락된 날짜에 공휴일 정보를 입력시킨다.
+
+    
 
 &nbsp;
 
@@ -147,74 +169,7 @@ xlsx는 입력하면 기존 셀 스타일이 초기화 되었다. (능숙하지 
 
 ---
 
-
-### AWS Lightsail
-&nbsp;
-
-동료분이 [AWS Lighsail](https://aws.amazon.com/ko/free/compute/lightsail/?trk=5ee88988-35e0-4ac4-b54f-913791232630&sc_channel=ps&ef_id=Cj0KCQjwna6_BhCbARIsALId2Z3wW8fIIrJdoQCMC-qz2Z8CBsJKVJHCgOUFYREl-zHNO_nImBVJ3OkaAsWHEALw_wcB:G:s&s_kwcid=AL!4422!3!536392904551!e!!g!!lightsail!11549848931!116492045190&gclid=Cj0KCQjwna6_BhCbARIsALId2Z3wW8fIIrJdoQCMC-qz2Z8CBsJKVJHCgOUFYREl-zHNO_nImBVJ3OkaAsWHEALw_wcB)을 말씀해 주셔서 살펴보았는데, 클릭 몇번만으로 간단하게 EC2 생성이 가능했다.
-또한 도메인, S3 등 보기 쉽게 정리되어 있어서 사용해보기로 했다.
-
-
-[![lightsail Logo](./lightsail.png)](https://aws.amazon.com/ko/free/compute/lightsail/?trk=5ee88988-35e0-4ac4-b54f-913791232630&sc_channel=ps&ef_id=Cj0KCQjwna6_BhCbARIsALId2Z3wW8fIIrJdoQCMC-qz2Z8CBsJKVJHCgOUFYREl-zHNO_nImBVJ3OkaAsWHEALw_wcB:G:s&s_kwcid=AL!4422!3!536392904551!e!!g!!lightsail!11549848931!116492045190&gclid=Cj0KCQjwna6_BhCbARIsALId2Z3wW8fIIrJdoQCMC-qz2Z8CBsJKVJHCgOUFYREl-zHNO_nImBVJ3OkaAsWHEALw_wcB)
-
-&nbsp;
-
-### 배포
-
-어느정도 기본적인 기능을 거의 개발한 뒤 배포작업만 남았다.
-
-**엑셀 원본 파일 관리**  
-우선 원본 엑셀 파일들을 버킷에 옮겼다.
-
-**배포**  
-Ubuntu환경 인스턴스에 업로드했다.
-아직은 주소가 IP주소로 접속해야 하는 상황.
-
-**PM2**  
-무중단 서비스를 위해서 PM2 세팅을 했다.
-
-
-
-**CI/CD**  
-사내에서 CI/CD 세팅 후 편리함을 느껴서 여기에도 추가했다.  
-`main` 브랜치에 Pull Request를 하면 자동으로 EC2에 코드가 업데이트된다.
-
-```yaml
-name: Deploy to AWS Lightsail
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "18"
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Deploy to Lightsail
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          LIGHTSAIL_IP: ${{ secrets.LIGHTSAIL_IP }}
-        run: |
-          echo "${SSH_PRIVATE_KEY}" > acg-extension-lightsail.pem
-          chmod 600 acg-extension-lightsail.pem
-          ssh -i acg-extension-lightsail.pem -o StrictHostKeyChecking=no ubuntu@${LIGHTSAIL_IP} "echo SSH connection established"
-          rsync -avz --exclude='node_modules' -e "ssh -i acg-extension-lightsail.pem -o StrictHostKeyChecking=no" ./ ubuntu@${LIGHTSAIL_IP}:/home/ubuntu/acg-extension
-          ssh -i acg-extension-lightsail.pem -o StrictHostKeyChecking=no ubuntu@${LIGHTSAIL_IP} "cd /home/ubuntu/acg-extension && npm install"
-```
-
+[식대앱 개발기 - 3](/dev/retrospective/2024-09-20-식대앱-3/)
 
 
 
