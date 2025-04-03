@@ -5,6 +5,7 @@ import Seo from "components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Badge } from "components/ui/badge"
 import { Card, CardHeader, CardTitle } from "components/ui/card"
+import Footer from "../components/Footer"
 export default function BlogPostTemplate({ data, pageContext }) {
   const post = data.markdownRemark
   const tags = data.markdownRemark.frontmatter.tags
@@ -107,6 +108,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
           </section>
         </div>
       </article>
+      <Footer />
     </Layout>
   )
 }

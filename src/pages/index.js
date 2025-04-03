@@ -20,7 +20,7 @@ const Main = ({ data }) => {
     <Layout>
       <FadingVideo />
       <MainCardWrapper posts={posts} siteTitle={siteTitle} />
-      <Footer />
+      {/* <Footer /> */}
     </Layout>
   )
 }

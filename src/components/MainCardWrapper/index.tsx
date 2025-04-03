@@ -1,4 +1,5 @@
 import Banner from "components/Banner"
+import Footer from "components/Footer"
 import DevContainer from "components/MainCard/dev"
 import MasonryLayout from "components/MainCard/lifeLog"
 import React, { useEffect, useState } from "react"
@@ -35,6 +36,8 @@ const MainCardWrapper: React.FC = ({ posts, siteTitle }: any) => {
       ) : (
         <MasonryLayout posts={lifeLogPosts} />
       )}
+
+      <Footer />
     </div>
   )
 }

@@ -5,14 +5,10 @@ import Layout from "../layout"
 import Seo from "components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Badge } from "components/ui/badge"
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "components/ui/card"
+import { Card, CardHeader, CardTitle } from "components/ui/card"
 import { ReactComponent as IconArrowRight } from "../images/chevron-right.svg"
 import { ReactComponent as IconArrowLeft } from "../images/chevron-left.svg"
+import Footer from "../components/Footer"
 export default function BlogPostTemplate({ data, pageContext }) {
   const post = data.markdownRemark
   const tags = data.markdownRemark.frontmatter.tags
@@ -42,7 +38,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
           </div>
           <p className="text-sm text-gray-500">{post.frontmatter.date}</p>
         </header>
-        <article className="leading-relaxed px-8 mb-24">
+        <article className="leading-relaxed px-4 md:px-8 mb-24">
           <section
             className="prose"
             dangerouslySetInnerHTML={{ __html: post.html }}
@@ -90,6 +86,8 @@ export default function BlogPostTemplate({ data, pageContext }) {
           </ul>
         </nav>
       </div>
+
+      <Footer />
     </Layout>
   )
 }

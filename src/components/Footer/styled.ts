@@ -6,18 +6,16 @@ import {
 import styled from "styled-components"
 
 export const Wrapper = styled.footer`
-  height: ${FOOTER_HEIGHT}px;
+  // height: ${FOOTER_HEIGHT}px;
   color: white;
-  font-size: 10px;
+  font-size: 12px;
   width: 100%;
-  margin-top: auto;
-  position: fixed;
-  bottom: 0;
+  // margin-top: auto;
   display: flex;
   align-items: center;
   text-align: center;
-  background-color: #161616;
-  z-index: -1;
+  // background-color: #161616;
+  z-index: 55;
   @media ${MOBILE_MEDIA_QUERY} {
     font-size: 13px;
     height: 40px;
