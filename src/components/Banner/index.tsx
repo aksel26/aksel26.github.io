@@ -8,13 +8,13 @@ const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
           className="h-full bg-gray-100 dark:bg-gray-700"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
-          transition={{ duration: 2, ease: "easeInOut" }}
+          transition={{ duration: 2, ease: "easeInOut", delay: 2 }}
         />
       </div>
       <motion.p
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 1, ease: "easeOut", delay: 2.5 }}
         viewport={{ once: true }} // 한 번만 애니메이션 실행
         className="absolute left-12 -top-8 font-bold"
       >
@@ -27,7 +27,7 @@ const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
           whileInView={{
             opacity: 1,
             y: 0,
-            transition: { delay: 0.8, duration: 0.8 },
+            transition: { delay: 2.8, duration: 0.8 },
           }}
           whileHover={{
             x: -5,
@@ -48,7 +48,7 @@ const Banner = ({ siteTitle, currentCategory, selectCategory }: any) => {
           whileInView={{
             opacity: 1,
             y: 0,
-            transition: { delay: 1.3, duration: 0.8 },
+            transition: { delay: 3.4, duration: 0.8 },
           }}
           whileHover={{
             x: -5,
