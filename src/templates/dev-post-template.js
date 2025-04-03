@@ -21,7 +21,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
     <Layout category={"Dev"}>
       <div className="mx-auto w-full md:w-max ">
         <header className="pt-24 pb-8 md:px-8 px-4">
-          <div className="w-full h-1/2 flex justify-center mb-12">
+          {/* <div className="w-full h-1/2 flex justify-center mb-12">
             {thumbnail && (
               <GatsbyImage
                 image={thumbnail}
@@ -29,7 +29,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
                 style={{ objectFit: "cover" }}
               />
             )}
-          </div>
+          </div> */}
           <h1 className="text-3xl font-bold ">{post.frontmatter.title}</h1>
           <div className="flex gap-x-4 py-6">
             {tags.map((tag, index) => (

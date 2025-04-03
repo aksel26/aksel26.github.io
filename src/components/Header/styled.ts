@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 
   // background-color: ${({ theme }) => theme.color.white100};
   // background-color: #161616;
-  z-index: 51;
+  z-index: 2;
 
   @media ${MOBILE_MEDIA_QUERY} {
     padding: 0 32px;

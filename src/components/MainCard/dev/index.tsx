@@ -15,7 +15,7 @@ const SkeletonComponent = () => {
 
 const DevContainer = ({ posts }: any) => {
   return (
-    <section className="mt-0 max-w-[1024px] mx-auto h-full py-20 ">
+    <section className="mt-0 max-w-[1024px] mx-auto h-full py-20 px-4">
       <div
         id="contents"
         className="md:h-[400px] gap-y-16 gap-x-10 flex flex-col md:flex-wrap md:px-0 px-6"

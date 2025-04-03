@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import myVideoSrc from "../../images/bgVideo.mp4"
+import myVideoSrc from "../../images/bg3.mp4"
 
 const FadingVideo = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -13,8 +13,8 @@ const FadingVideo = () => {
   }, [])
   return (
     <motion.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 0.2 }}
+      initial={{ opacity: 0.8 }}
+      animate={{ opacity: 0.25 }}
       transition={{
         delay: 1.5,
         duration: 1,
