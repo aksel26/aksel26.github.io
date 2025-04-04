@@ -14,7 +14,7 @@ const FadingVideo = () => {
   return (
     <motion.div
       initial={{ opacity: 0.8 }}
-      animate={{ opacity: 0.25 }}
+      animate={{ opacity: 0.5 }}
       transition={{
         delay: 1.5,
         duration: 1,
