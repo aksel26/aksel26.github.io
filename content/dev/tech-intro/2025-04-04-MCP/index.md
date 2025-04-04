@@ -4,7 +4,7 @@ date: "2025-04-04"
 slug: "productivity"
 mainCategory: "Dev"
 tags: ["MCP","Claude"]
-thumbnail: "./thumbnail.webp"
+thumbnail: "./thumbnail.jpg"
 summary: "Claude에 MCP 서버를 올려 사용해본 후기"
 ---
 
