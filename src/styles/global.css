@@ -98,6 +98,14 @@ section {
 code[class*="language-"] {
   font-size: 0.75rem;
 }
+.prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin: 3px 0;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0;
+}
 
 @media (max-width: 767px) {
   .mobile-scroll-snap-container {
