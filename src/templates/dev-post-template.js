@@ -9,6 +9,7 @@ import { Card, CardHeader, CardTitle } from "components/ui/card"
 import { ReactComponent as IconArrowRight } from "../images/chevron-right.svg"
 import { ReactComponent as IconArrowLeft } from "../images/chevron-left.svg"
 import Footer from "../components/Footer"
+import Comment from "../components/Comment"
 export default function BlogPostTemplate({ data, pageContext }) {
   const post = data.markdownRemark
   const tags = data.markdownRemark.frontmatter.tags
@@ -43,6 +44,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
             className="prose"
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
+          <Comment />
         </article>
 
         <nav className="blog-post-nav mt-12 w-full ">
