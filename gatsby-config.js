@@ -57,7 +57,12 @@ module.exports = {
         withWebp: true,
       },
     },
-
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     {
       resolve: "gatsby-remark-external-links",
       options: {
