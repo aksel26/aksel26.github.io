@@ -51,6 +51,10 @@ const Seo: React.FC<SeoProps> = ({ description = "", title, thumbnail }) => {
       defaultTitle={defaultTitle}
       meta={[
         {
+          property: "google-site-verification",
+          content: "웹 마스터 도구가 제공하는 Meta 태그",
+        },
+        {
           property: `og:title`,
           content: title,
         },
