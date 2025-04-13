@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../layout"
 // import Layout from "../components/layout"
-import Seo from "components/seo"
+// import Seo from "components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Badge } from "components/ui/badge"
 import { Card, CardHeader, CardTitle } from "components/ui/card"
@@ -12,28 +12,26 @@ import Footer from "../components/Footer"
 import Comment from "../components/Comment"
 export default function BlogPostTemplate({ data, pageContext }) {
   const post = data.markdownRemark
+  const thumbnailSrc =
+    post.frontmatter.thumbnail?.childImageSharp?.fixed?.src || null
+
   const tags = data.markdownRemark.frontmatter.tags
-  const thumbnail = getImage(post.frontmatter.thumbnail)
   const { previous, next } = pageContext
 
   // const post = data.markdownRemark
 
   return (
     <Layout category={"Dev"}>
+      <Seo
+        title={post.frontmatter.title}
+        description={post.frontmatter.summary || post.excerpt}
+        thumbnail={thumbnailSrc}
+      />
       <div className="mx-auto w-full md:w-max ">
         <header className="pt-24 pb-8 md:px-8 px-4">
-          {/* <div className="w-full h-1/2 flex justify-center mb-12">
-            {thumbnail && (
-              <GatsbyImage
-                image={thumbnail}
-                alt={post.frontmatter.title}
-                style={{ objectFit: "cover" }}
-              />
-            )}
-          </div> */}
           <h1 className="text-3xl font-bold ">{post.frontmatter.title}</h1>
           <div className="flex gap-x-4 py-6">
-            {tags.map((tag, index) => (
+            {tags.map((tag: string, index: number) => (
               <Badge key={index} variant="secondary">{`#${tag}`}</Badge>
             ))}
           </div>
@@ -94,15 +92,6 @@ export default function BlogPostTemplate({ data, pageContext }) {
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }) => {
-  return (
-    <Seo
-      title={post.frontmatter.title}
-      description={post.frontmatter.summary || post.excerpt}
-    />
-  )
-}
-
 // export default BlogPostTemplate
 
 export const query = graphql`
@@ -113,7 +102,9 @@ export const query = graphql`
         title
         date(formatString: "YYYY년 MM월 DD일")
         tags
+        summary
         thumbnail {
+          publicURL
           childImageSharp {
             gatsbyImageData(
               width: 500
@@ -121,6 +112,9 @@ export const query = graphql`
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )
+            fixed(width: 1200) {
+              src
+            }
           }
         }
       }
