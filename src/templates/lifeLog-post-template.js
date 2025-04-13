@@ -8,7 +8,6 @@ import { Card, CardHeader, CardTitle } from "components/ui/card"
 import Footer from "../components/Footer"
 export default function BlogPostTemplate({ data, pageContext }) {
   const post = data.markdownRemark
-  console.log("post: ", post)
   const tags = data.markdownRemark.frontmatter.tags
   const images = data.markdownRemark.frontmatter.images
   const thumbnail = getImage(post.frontmatter.thumbnail)

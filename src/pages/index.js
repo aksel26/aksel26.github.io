@@ -5,7 +5,7 @@ import Banner from "../components/Banner"
 import MainCardWrapper from "components/MainCardWrapper"
 import FadingVideo from "components/FadingVideo"
 import Footer from "../components/Footer"
-import Seo from "../components/seo"
+import Seo from "../components/Seo"
 import Layout from "../layout"
 
 const Main = ({ data }) => {
