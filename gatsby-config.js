@@ -12,9 +12,9 @@ module.exports = {
     title: `HM-blog`,
     author: {
       name: `김현민`,
-      summary: `프론트엔드 개발자`,
+      summary: `멈추지 않는 프론트엔드 개발자입니다.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `일상과 개발을 기록하는 블로그입니다.`,
     siteUrl: `https://hmkim.netlify.app/`,
     social: {
       twitter: `kylemathews`,
