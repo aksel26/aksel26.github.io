@@ -10,7 +10,8 @@ import { ReactComponent as IconArrowRight } from "../images/chevron-right.svg"
 import { ReactComponent as IconArrowLeft } from "../images/chevron-left.svg"
 import Footer from "../components/Footer"
 import Comment from "../components/Comment"
-export default function BlogPostTemplate({ data, pageContext }) {
+import Seo from "components/Seo"
+export default function BlogPostTemplate({ data, pageContext }: any) {
   const post = data.markdownRemark
   const thumbnailSrc =
     post.frontmatter.thumbnail?.childImageSharp?.fixed?.src || null
