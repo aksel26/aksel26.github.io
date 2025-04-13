@@ -11,6 +11,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 
 type LayoutProps = {
   children: React.ReactNode
+  category?: string
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, category }: any) => {
