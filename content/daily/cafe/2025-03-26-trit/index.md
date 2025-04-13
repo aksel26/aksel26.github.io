@@ -7,6 +7,8 @@ tags: ["카페", "용산구"]
 thumbnail: "./thumbnail.webp"
 images: ["./thumbnail.webp","./content-1.webp","./content-2.webp",]
 location: "용산구"
+summary: "cafe"
+
 ---
 
 
