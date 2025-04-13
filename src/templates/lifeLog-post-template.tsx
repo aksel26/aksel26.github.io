@@ -1,22 +1,28 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../layout"
-import Seo from "components/seo"
+import Seo from "components/Seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Badge } from "components/ui/badge"
 import { Card, CardHeader, CardTitle } from "components/ui/card"
 import Footer from "../components/Footer"
-export default function BlogPostTemplate({ data, pageContext }) {
+export default function BlogPostTemplate({ data, pageContext }: any) {
   const post = data.markdownRemark
   const tags = data.markdownRemark.frontmatter.tags
   const images = data.markdownRemark.frontmatter.images
-  const thumbnail = getImage(post.frontmatter.thumbnail)
   const { previous, next } = pageContext
-
+  const thumbnailSrc =
+    post.frontmatter.thumbnail?.childImageSharp?.fixed?.src || null
+  console.log("thumbnailSrc: ", thumbnailSrc)
   // const post = data.markdownRemark
 
   return (
     <Layout>
+      <Seo
+        title={post.frontmatter.title}
+        description={post.frontmatter.summary || post.excerpt}
+        thumbnail={thumbnailSrc}
+      />
       <header className="pt-[60px] pb-8 px-8 text-center">
         <p className="md:text-9xl text-7xl  text-white font-semibold text-left">
           {post.frontmatter.title}
@@ -41,7 +47,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
               {post.frontmatter.date}
             </p>
             <div className="flex gap-x-2 justify-center w-max">
-              {tags.map((tag, index) => (
+              {tags.map((tag: string, index: number) => (
                 <Badge key={index} variant="secondary">{`#${tag}`}</Badge>
               ))}
             </div>
@@ -82,7 +88,7 @@ export default function BlogPostTemplate({ data, pageContext }) {
             </nav>
           </div>
           <section className="flex-1 flex md:flex-row flex-wrap flex-col gap-4 ">
-            {images.map((image, index) => {
+            {images.map((image: any, index: number) => {
               return !image.childImageSharp ? (
                 <video
                   autoPlay
@@ -109,15 +115,6 @@ export default function BlogPostTemplate({ data, pageContext }) {
       </article>
       <Footer />
     </Layout>
-  )
-}
-
-export const Head = ({ data: { markdownRemark: post } }) => {
-  return (
-    <Seo
-      title={post.frontmatter.title}
-      description={post.frontmatter.summary || post.excerpt}
-    />
   )
 }
 
@@ -150,6 +147,9 @@ export const query = graphql`
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )
+            fixed(width: 1200) {
+              src
+            }
           }
         }
       }

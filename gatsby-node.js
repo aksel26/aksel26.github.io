@@ -71,7 +71,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     if (currentCategory === "Dev") {
       template = path.resolve(`./src/templates/dev-post-template.tsx`)
     } else if (currentCategory === "LifeLog") {
-      template = path.resolve(`./src/templates/lifeLog-post-template.js`)
+      template = path.resolve(`./src/templates/lifeLog-post-template.tsx`)
     }
 
     createPage({
