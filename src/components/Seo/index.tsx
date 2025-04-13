@@ -52,7 +52,7 @@ const Seo: React.FC<SeoProps> = ({ description = "", title, thumbnail }) => {
       meta={[
         {
           property: "google-site-verification",
-          content: "웹 마스터 도구가 제공하는 Meta 태그",
+          content: "3Z0N6Zgzw95Uk6Xwd0iJX_xcWRFAPxL2iozSpiLpukM",
         },
         {
           property: `og:title`,
